@@ -269,6 +269,7 @@
     var body = el("div", "share-body");
     var inner = el("div", "share-inner" + (nodes.length === 1 ? " single" : ""));
     nodes.forEach(function (n) { inner.appendChild(n); });
+    if (day && day.note) inner.appendChild(el("div", "day-msg day-note", day.note));
     if (day && day.msg) inner.appendChild(day.msg);
     body.appendChild(inner);
     if (day) {
@@ -779,7 +780,7 @@
       openMenu(b, "📷 قەبارێ وێنەی هەلبژێرە", sizeItems(["post", "story", "square"], function () {
         // هەر جار کۆپیەکا نوو یا کارتان و پەیامێ (دا کو چەند جاران بهێتە دابەزاندن)
         var cs = cards.map(function (c) { return c.cloneNode(true); });
-        var pc = portraitCard(badge, sub, cs, "day-card", false, { msg: msg ? msg.cloneNode(true) : null });
+        var pc = portraitCard(badge, sub, cs, "day-card", false, { msg: msg ? msg.cloneNode(true) : null, note: typeof DAY_NOTES !== "undefined" && iso ? DAY_NOTES[iso] : null });
         return shoot(pc.card, named(name), { ratio: PORTRAIT.RATIO, cleanup: pc.remove, before: pc.fit });
       }));
     });

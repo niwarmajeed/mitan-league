@@ -1850,3 +1850,6 @@ footer .ft-credit .cr-lbl { margin-inline-end: 6px; }
 
 /* فۆنتێ Rabar ل سەر هەمی ماڵپەری (دوگمە و خانە ژی) */
 button, input, select, textarea, table, th, td { font-family: "Rabar", "Vazirmatn", "Noto Sans Arabic", Tahoma, sans-serif; }
+
+/* ئاگەهداریا تایبەت ل سەر وێنەیێ ڕۆژێ */
+.day-msg.day-note { color: #ffe9a3; border-color: #e8c25c; background: rgba(168,122,30,.22); font-weight: 900; unicode-bidi: plaintext; }

@@ -126,6 +126,7 @@ var RESULTS = [
   ["France", 1, 0, "Milano FC"],
   ["Sêmêl SC", 1, 5, "PSG"],
   ["King FC", 3, 5, "Mitan Sport"],
+  ["PSG", 5, 0, "Pushpa"],
   
   // تیمێ ئێکێ       گۆل   گۆل    تیمێ دووێ      پێناڵتی (ئەگەر هەبیت)
   // ["تیم 1",        3,    1,    "تیم 2"],
@@ -153,21 +154,17 @@ var GOALS = [
   [9, "عبدالوهاب", "Sêmêl SC", 1],
   [2, "لاوەند",      "Sêmêl SC",    2],
   [2, "ئارییان",     "Sêmêl SC",    2],
-  [3, "یوسف",        "Mitan Sport", 1],
   [3, "زەڤەر",       "Mitan Sport", 2],
-  [4, "محمد قحتان",  "Pushpa",      1],
-  [4, "سنور",        "Pushpa",      1],
   [5, "هێژا",        "Saqar Mitan", 1],
   [6, "سەهەند",      "Phoenix",     1],
   [6, "ڕەیان",       "Phoenix",     4],
-  [6, "مێڤان",       "Phoenix",     1],
   [7, "دیندار",      "The Ones",    1],
   [7, "هشیار",       "The Ones",    3],
   [9, "عیماد",       "PSG",     3],
   [8, "محمد محسن",   "France",       1],
   [11,  "زەڤەر",  "Mitan Sport",     3],
-  [11,  "شادی",  "Mitan Sport",      1],
-  [11,  "نودەم",  "Mitan Sport",     1],
+  [12, "عیماد",       "PSG",     3],
+
   
   // [1,     "Ahmed Ali",      "Duhok SC",      2],
   // [1,     "Karwan Omar",    "Barova Club",   1],
