@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a6417"/><stop offset=".5" stop-color="#ffe9a3"/><stop offset="1" stop-color="#a87a1e"/></linearGradient>
+<radialGradient id="blue" cx=".5" cy=".35" r=".7"><stop offset="0" stop-color="#4cc6ee"/><stop offset=".55" stop-color="#1987c9"/><stop offset="1" stop-color="#0e2b45"/></radialGradient>
+<path id="top" d="M58 256 A198 198 0 0 1 454 256"/>
+<path id="bot" d="M40 256 A216 216 0 0 0 472 256"/>
+</defs>
+<circle cx="256" cy="256" r="250" fill="url(#gold)"/>
+<circle cx="256" cy="256" r="234" fill="#0e2b45"/>
+<circle cx="256" cy="256" r="166" fill="url(#blue)" stroke="url(#gold)" stroke-width="8"/>
+<text font-family="'Arial Black', Arial, sans-serif" font-weight="900" font-size="44" letter-spacing="6" fill="#ffe9a3"><textPath href="#top" startOffset="50%" text-anchor="middle">MITAN SPORT</textPath></text>
+<text font-family="Arial, sans-serif" font-weight="700" font-size="28" letter-spacing="6" fill="#4cc6ee"><textPath href="#bot" startOffset="50%" text-anchor="middle">EST. 2026</textPath></text>
+<g fill="url(#gold)"><polygon points="40.0,240.0 43.9,250.6 55.2,251.1 46.4,258.1 49.4,268.9 40.0,262.7 30.6,268.9 33.6,258.1 24.8,251.1 36.1,250.6"/><polygon points="472.0,240.0 475.9,250.6 487.2,251.1 478.4,258.1 481.4,268.9 472.0,262.7 462.6,268.9 465.6,258.1 456.8,251.1 468.1,250.6"/></g>
+<text x="256" y="292" text-anchor="middle" font-family="'Arial Black', Arial, sans-serif" font-weight="900" font-size="132" fill="#ffffff" stroke="#0e2b45" stroke-width="4">MS</text>
+<g transform="translate(256 352)">
+<circle r="34" fill="#fff" stroke="#0e2b45" stroke-width="4"/>
+<polygon points="0,-13 12.4,-4 7.6,10.5 -7.6,10.5 -12.4,-4" fill="#0e2b45"/>
+<path d="M0 -13 V-33 M12.4 -4 L31 -10 M7.6 10.5 L19 27 M-7.6 10.5 L-19 27 M-12.4 -4 L-31 -10" stroke="#0e2b45" stroke-width="4" fill="none"/>
+</g>
+</svg>

@@ -1,0 +1,1852 @@
+/* ڕەنگێن کارتا پەیمانگەها میتان */
+:root {
+  --navy: #143a5c;
+  --navy-dark: #0e2b45;
+  --blue: #1987c9;
+  --sky: #35a6de;
+  --accent: #4cc6ee;
+  --bg: #e9eef4;
+  --card: #ffffff;
+  --text: #13293f;
+  --muted: #5f7489;
+  --line: #cfdbe7;
+  --blue-grad: linear-gradient(135deg, var(--blue) 0%, var(--sky) 100%);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Rabar", "Vazirmatn", "Noto Sans Arabic", Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ---------- سەرێ لاپەڕی (وەکی کارتێ) ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+  color: #fff;
+  text-align: center;
+  border-bottom: 8px solid var(--accent);
+}
+.hero-band { position: absolute; inset: 0; pointer-events: none; }
+.stripe { position: absolute; top: 0; bottom: 0; }
+.stripe.s1 {
+  right: 0; width: 46%;
+  background: var(--blue);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 42% 100%);
+}
+.stripe.s2 {
+  right: 0; width: 34%;
+  background: var(--sky);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 58% 100%);
+}
+
+.brand {
+  position: relative;
+  display: flex; align-items: center; gap: 16px;
+  padding: 24px 32px 0;
+  text-align: left; line-height: 1.05;
+}
+.brand-text { display: flex; flex-direction: column; align-items: flex-start; }
+.brand strong { font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 900; letter-spacing: .02em; }
+.brand span { font-size: clamp(.8rem, 2.2vw, 1.15rem); font-weight: 800; letter-spacing: .04em; margin-top: 6px; color: #dceefa; }
+
+.hero-body { position: relative; padding: 18px 16px 36px; }
+
+.institute {
+  display: inline-block;
+  background: #fff; color: var(--navy);
+  font-weight: 900; font-size: 1rem;
+  padding: 5px 22px; border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.2);
+  margin-bottom: 14px;
+}
+
+.inst-logo {
+  width: clamp(64px, 11vw, 96px); height: clamp(64px, 11vw, 96px); object-fit: cover;
+  border-radius: 18px; border: 3px solid #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,.35), 0 0 0 4px rgba(76,198,238,.45);
+}
+.trophy {
+  width: 92px; display: block; margin: 0 auto 8px;
+  filter: drop-shadow(0 0 22px rgba(255,210,110,.6));
+}
+
+h1 { font-size: clamp(1.7rem, 5.5vw, 3rem); font-weight: 900; color: #fff; text-shadow: 0 3px 18px rgba(0,0,0,.25); }
+.subtitle { color: #cfe6f6; margin-top: 4px; font-size: 1rem; }
+
+.supervisor {
+  display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center;
+  margin-top: 16px; padding: 9px 22px;
+  border-radius: 999px;
+  background: rgba(14,43,69,.75);
+  border: 1px solid rgba(76,198,238,.6);
+}
+.supervisor span { color: #cfe6f6; }
+.supervisor strong { color: #fff; font-weight: 800; }
+
+.stats { display: flex; justify-content: center; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+.stat {
+  min-width: 92px; padding: 10px 16px; border-radius: 12px;
+  background: #fff; color: var(--navy);
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  border-bottom: 4px solid var(--sky);
+}
+.stat b { display: block; font-size: 1.6rem; font-weight: 900; color: var(--blue); line-height: 1.2; }
+.stat span { color: var(--muted); font-size: .9rem; font-weight: 700; }
+
+/* ---------- بەش ---------- */
+.tabs { display: flex; justify-content: center; gap: 10px; padding: 22px 16px 0; flex-wrap: wrap; }
+.tabs a {
+  color: var(--navy); text-decoration: none; font-weight: 800;
+  border: 2px solid var(--navy); border-radius: 999px; padding: 6px 22px;
+  background: #fff;
+}
+.tabs a:hover { border-color: var(--blue); color: var(--blue); }
+.tabs a.active { background: var(--navy); color: #fff; border-color: var(--navy); box-shadow: inset 0 -4px 0 var(--accent); }
+[hidden] { display: none !important; }
+
+.section-title { text-align: center; margin-bottom: 24px; }
+.section-title span {
+  display: inline-block; padding: 8px 40px;
+  background: var(--navy); color: #fff;
+  font-weight: 900; font-size: 1.25rem;
+  border-bottom: 4px solid var(--accent);
+  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+}
+
+/* ---------- خشتە ---------- */
+main { max-width: 900px; margin: 0 auto; padding: 30px 16px 48px; }
+
+.day { margin-bottom: 30px; }
+.day-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+.day-head::after { content: ""; flex: 1; height: 2px; background: linear-gradient(90deg, transparent, var(--sky)); }
+.day-num {
+  background: var(--navy); color: #fff; font-weight: 900;
+  padding: 3px 14px; border-radius: 8px; white-space: nowrap;
+  border-bottom: 3px solid var(--accent);
+}
+.day-date {
+  font-weight: 900; color: var(--blue); font-size: 1.1rem;
+  direction: ltr; unicode-bidi: isolate; letter-spacing: .03em;
+}
+.day-name { font-weight: 800; color: var(--navy); }
+.today-badge {
+  background: var(--sky); color: #fff; font-size: .8rem; font-weight: 800;
+  padding: 2px 10px; border-radius: 999px;
+}
+
+.match {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: 10px;
+  padding: 18px 14px 14px;
+  margin-bottom: 14px;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--navy);
+  box-shadow: 0 8px 22px rgba(20,58,92,.10);
+}
+.match.today { border-top-color: var(--sky); box-shadow: 0 0 0 2px var(--sky), 0 10px 26px rgba(53,166,222,.25); }
+
+.team { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; min-width: 0; }
+.team-name { font-weight: 800; font-size: 1.05rem; color: var(--navy); word-break: break-word; }
+
+.logo, .logo-ph {
+  width: 64px; height: 64px; border-radius: 50%;
+  border: 3px solid var(--sky);
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(20,58,92,.15);
+}
+.logo { object-fit: contain; padding: 4px; }
+.logo-ph {
+  display: grid; place-items: center;
+  font-weight: 900; font-size: 1.4rem; color: #fff;
+  background: var(--navy);
+}
+
+.center { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.vs {
+  width: 52px; height: 52px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--blue-grad); color: #fff;
+  font-weight: 900; font-size: 1.05rem; direction: ltr;
+  box-shadow: 0 4px 12px rgba(25,135,201,.4);
+}
+.score {
+  min-width: 70px; padding: 6px 12px; border-radius: 10px; text-align: center;
+  background: var(--navy); color: #fff; font-weight: 900; font-size: 1.3rem; direction: ltr;
+  border-bottom: 3px solid var(--accent);
+}
+.time {
+  font-size: .85rem; font-weight: 800; color: var(--navy);
+  background: #e3f3fb; border-radius: 999px; padding: 2px 12px; white-space: nowrap;
+}
+.round {
+  position: absolute; top: -12px; right: 50%; transform: translateX(50%);
+  font-size: .72rem; font-weight: 700; color: #fff; background: var(--blue);
+  border-radius: 999px; padding: 0 12px; white-space: nowrap;
+}
+
+.empty { text-align: center; color: var(--muted); padding: 40px 0; }
+
+/* ---------- تیروپشک (قرعە) ---------- */
+.draw { max-width: 1240px; margin: 0 auto; padding: 30px 16px 8px; }
+.draw-count { text-align: center; color: var(--muted); margin: -8px 0 18px; font-weight: 700; }
+.draw-count b { color: var(--blue); font-size: 1.15rem; }
+
+/* پاشخانا یاریگەهێ ب شینەکێ شەفاف ل سەر.
+   ئەگەر وێنەیەک د data.js دا (drawBackground) هەبیت، ئەو ل جهێ یاریگەها کێشای دیار دبیت. */
+.bracket-wrap {
+  position: relative; z-index: 1;
+  direction: ltr; /* ل مۆبایلێ ژ لیستا تیمان دەست پێ دکەت */
+  overflow-x: auto; overflow-y: hidden; padding: 64px 12px 20px;
+}
+.bracket-sizer { position: relative; margin: 0 auto; }
+
+/* ---------- دوگمەیا شاشا تەمام ---------- */
+.bracket-frame {
+  position: relative; overflow: hidden;
+  border-radius: 18px;
+  border-bottom: 6px solid var(--accent);
+  box-shadow: 0 10px 28px rgba(20,58,92,.3);
+  background:
+    radial-gradient(ellipse 35% 28% at 6% 0%, rgba(255,255,255,.45), transparent 70%),
+    radial-gradient(ellipse 35% 28% at 94% 0%, rgba(255,255,255,.45), transparent 70%),
+    radial-gradient(ellipse 32% 38% at 50% 52%, rgba(76,198,238,.22), transparent 70%),
+    linear-gradient(180deg, rgba(14,43,69,.70) 0%, rgba(20,58,92,.48) 50%, rgba(14,43,69,.78) 100%),
+    var(--draw-bg, url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 800' preserveAspectRatio='xMidYMid slice'><defs><pattern id='s' width='200' height='800' patternUnits='userSpaceOnUse'><rect width='100' height='800' fill='%231b78bb'/></pattern></defs><rect width='1000' height='800' fill='%23166aa6'/><rect width='1000' height='800' fill='url(%23s)'/><g fill='none' stroke='%23ffffff' stroke-opacity='.45' stroke-width='5'><rect x='40' y='40' width='920' height='720'/><line x1='500' y1='40' x2='500' y2='760'/><circle cx='500' cy='400' r='95'/><rect x='40' y='210' width='160' height='380'/><rect x='40' y='315' width='60' height='170'/><path d='M200 335 A80 80 0 0 1 200 465'/><rect x='800' y='210' width='160' height='380'/><rect x='900' y='315' width='60' height='170'/><path d='M800 335 A80 80 0 0 0 800 465'/></g><circle cx='500' cy='400' r='8' fill='%23ffffff'/></svg>")) center / cover no-repeat,
+    #166aa6;
+}
+
+/* شەپۆلێن هێدی ل سەر یاریگەهێ */
+.waves { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.waves i {
+  position: absolute; left: 0; right: 0; height: 60%;
+  background-repeat: repeat-x; background-size: 1600px 100%;
+  animation: wave-move linear infinite;
+}
+.waves .w1 {
+  top: 8%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 400' preserveAspectRatio='none'><path d='M0 200 C200 120 600 120 800 200 S1400 280 1600 200 V400 H0Z' fill='%23ffffff' fill-opacity='.07'/></svg>");
+  animation-duration: 38s;
+}
+.waves .w2 {
+  top: 28%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 400' preserveAspectRatio='none'><path d='M0 200 C200 120 600 120 800 200 S1400 280 1600 200 V400 H0Z' fill='%234cc6ee' fill-opacity='.10'/></svg>");
+  animation-duration: 27s; animation-direction: reverse;
+}
+.waves .w3 {
+  top: 50%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 400' preserveAspectRatio='none'><path d='M0 200 C200 120 600 120 800 200 S1400 280 1600 200 V400 H0Z' fill='%23ffffff' fill-opacity='.06'/><path d='M0 200 C200 120 600 120 800 200 S1400 280 1600 200' fill='none' stroke='%23ffffff' stroke-opacity='.22' stroke-width='3'/></svg>");
+  animation-duration: 20s;
+}
+@keyframes wave-move {
+  0%   { background-position-x: 0;       transform: translateY(0); }
+  50%  {                                  transform: translateY(18px); }
+  100% { background-position-x: -1600px; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) { .waves i { animation: none; } }
+
+.draw-logo {
+  position: absolute; top: 12px; left: 12px; z-index: 5;
+  width: 46px; height: 46px; border-radius: 12px; object-fit: cover;
+  border: 2px solid #fff; box-shadow: 0 6px 18px rgba(0,0,0,.35);
+}
+.tool-bar { position: absolute; top: 12px; right: 12px; z-index: 30; display: flex; gap: 8px; }
+.full-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: inherit; font-weight: 800; font-size: .95rem;
+  color: var(--navy); background: #fff;
+  border: 0; border-bottom: 3px solid var(--accent); border-radius: 12px;
+  padding: 7px 14px; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+  transition: transform .15s, background .15s;
+}
+.full-btn:hover { transform: scale(1.06); background: #e3f3fb; }
+.full-btn svg { width: 20px; height: 20px; fill: none; stroke: var(--blue); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.full-btn .ic-close { display: none; }
+
+/* کۆنترۆلا دەنگی */
+.vol-ctl {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; border-bottom: 3px solid var(--accent); border-radius: 12px;
+  padding: 4px 12px 4px 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+}
+.vol-btn {
+  display: grid; place-items: center; width: 30px; height: 30px;
+  border: 0; border-radius: 8px; background: transparent; cursor: pointer;
+}
+.vol-btn:hover { background: #e3f3fb; }
+.vol-btn svg { width: 22px; height: 22px; fill: none; stroke: var(--blue); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.vol-btn .spk { fill: var(--blue); }
+.vol-btn .x { display: none; stroke: #d64545; }
+.vol-ctl.low .w2 { display: none; }
+.vol-ctl.muted .w1, .vol-ctl.muted .w2 { display: none; }
+.vol-ctl.muted .x { display: block; }
+.vol-ctl input[type=range] {
+  -webkit-appearance: none; appearance: none;
+  width: 120px; height: 6px; border-radius: 999px; cursor: pointer;
+  background: linear-gradient(90deg, var(--blue) 0 var(--fill, 80%), #d5e3ef var(--fill, 80%) 100%);
+}
+.vol-ctl input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--blue); box-shadow: 0 2px 6px rgba(0,0,0,.3);
+}
+.vol-ctl input[type=range]::-moz-range-thumb {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--blue);
+}
+.vol-val { min-width: 2.2em; text-align: center; font-weight: 800; color: var(--navy); font-size: .9rem; }
+
+/* دوگمەیا موزیکێ */
+.eq { display: none; align-items: flex-end; gap: 2px; height: 18px; }
+.eq b { width: 3px; background: var(--blue); border-radius: 2px; animation: eq .9s ease-in-out infinite; }
+.eq b:nth-child(2) { animation-delay: -.3s; }
+.eq b:nth-child(3) { animation-delay: -.6s; }
+.eq b:nth-child(4) { animation-delay: -.15s; }
+@keyframes eq { 0%, 100% { height: 4px; } 50% { height: 18px; } }
+.music-btn.playing { background: var(--blue-grad); color: #fff; }
+.music-btn.playing .eq { display: inline-flex; }
+.music-btn.playing .eq b { background: #fff; }
+.music-btn.playing .ic-play { display: none; }
+.is-full .full-btn .ic-open { display: none; }
+.is-full .full-btn .ic-close { display: block; }
+
+.bracket-frame.is-full {
+  position: fixed; inset: 0; z-index: 1000; border-radius: 0; border-bottom: 0;
+}
+.is-full .bracket-wrap {
+  height: 100%;
+  display: flex; overflow: hidden; padding: 64px 12px 12px;
+}
+.is-full .bracket-sizer { margin: auto; }
+body.no-scroll { overflow: hidden; }
+.bracket { position: absolute; top: 0; left: 0; transform-origin: top left; direction: ltr; }
+.bracket .lines { position: absolute; top: 0; left: 0; overflow: visible; }
+.bracket .lines path { fill: none; stroke: rgba(255,255,255,.75); stroke-width: 2; }
+.bracket .lines path.win { stroke: var(--accent); stroke-width: 3; filter: drop-shadow(0 0 4px rgba(76,198,238,.7)); }
+
+.bslot, .bnode { position: absolute; display: flex; }
+.bnum {
+  flex: 0 0 44px; display: grid; place-items: center;
+  background: var(--sky); color: #fff; font-weight: 900; font-size: 1.05rem;
+  border-radius: 10px 0 0 10px;
+}
+.bname, .bnode {
+  align-items: center; justify-content: center; gap: 8px; min-width: 0;
+  background: #fff; color: var(--navy); font-weight: 800;
+  padding: 0 10px; direction: rtl;
+}
+.bname { display: flex; flex: 1; border-radius: 0 12px 12px 0; }
+
+/* خانێن تیمان: شێوازێ نوو */
+.bslot {
+  border-radius: 14px; overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,.28);
+  transition: transform .2s;
+}
+.bslot .bnum {
+  background: linear-gradient(135deg, var(--blue), var(--sky));
+  border-radius: 0;
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+.bslot .bname {
+  border-radius: 0;
+  background: linear-gradient(180deg, #ffffff, #e8f3fb);
+  box-shadow: inset 4px 0 0 var(--accent);
+}
+.bslot.right { flex-direction: row-reverse; }
+.bslot.right .bname { box-shadow: inset -4px 0 0 var(--accent); }
+
+/* شێوازێ دوو لا (شاشێن پان): خانە و نڤیسین مەزنترن */
+.bracket.double .bslot .bnum { flex-basis: 56px; font-size: 30px; }
+.bracket.double .bname { font-size: 34px; font-weight: 800; color: #0b2742; padding: 0 10px; letter-spacing: .01em; }
+.bracket.double .bnode { font-size: 26px; font-weight: 900; border-radius: 16px; padding: 0 16px; }
+.bracket.double .bnode.champ { font-size: 40px; border-radius: 18px; }
+.bracket.double .bname img, .bracket.double .bnode img { width: 44px; height: 44px; flex-basis: 44px; }
+.bracket.double .bnode.champ img { width: 60px; height: 60px; flex-basis: 60px; }
+.bracket.double .b-label { font-size: 1.3rem; }
+.bnode {
+  border-radius: 12px; font-size: .9rem; color: #fff; border: 1.5px solid var(--sky);
+  background: rgba(14,43,69,.82); backdrop-filter: blur(3px);
+}
+.bn-text { white-space: nowrap; overflow: hidden; min-width: 0; line-height: 1.15; text-align: center; }
+/* لوگۆ ب قەبارەکا جێگیر ل لایێ ناڤخۆیێ ناڤی؛ ل لایێ ڕاستێ ل چەپێ ناڤی */
+.bslot.right .bname { direction: ltr; }
+.bracket.double .bslot .bname img { width: 36px; height: 36px; flex-basis: 36px; }
+.bname img, .bnode img {
+  width: 24px; height: 24px; flex: 0 0 24px; border-radius: 50%;
+  object-fit: contain; background: #fff; border: 1px solid var(--sky);
+}
+.bnode.champ {
+  font-size: 1.2rem; border: 2px solid var(--accent); border-radius: 14px;
+  background: var(--blue-grad);
+  box-shadow: 0 0 28px rgba(76,198,238,.45);
+}
+.bnode.champ img { width: 38px; height: 38px; flex-basis: 38px; }
+.lost { opacity: .4; }
+.b-trophy {
+  position: absolute; width: 150px; height: 160px;
+  filter: drop-shadow(0 0 28px rgba(255,210,110,.65));
+}
+.b-welcome {
+  position: absolute;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  padding: 24px 28px; text-align: center; direction: rtl;
+  border-radius: 22px;
+  background: linear-gradient(160deg, rgba(14,43,69,.62), rgba(25,135,201,.28));
+  border: 1px solid rgba(76,198,238,.45);
+  box-shadow: 0 12px 34px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.12);
+  backdrop-filter: blur(4px);
+  animation: bw-in 1s ease-out both;
+}
+.bw-title {
+  font-size: 28px; font-weight: 900; line-height: 1.45;
+  text-wrap: balance;
+  background: linear-gradient(90deg, #a87a1e, #ffe9a3, #e2b450, #ffe9a3, #a87a1e);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 3px 10px rgba(0,0,0,.45));
+  animation: bw-shine 6s linear infinite;
+}
+.bw-divider { display: flex; align-items: center; gap: 10px; width: 70%; }
+.bw-divider::before, .bw-divider::after {
+  content: ""; flex: 1; height: 2px;
+  background: linear-gradient(90deg, transparent, #e2b450);
+}
+.bw-divider::after { background: linear-gradient(90deg, #e2b450, transparent); }
+.bw-divider span {
+  width: 12px; height: 12px; transform: rotate(45deg);
+  background: linear-gradient(135deg, #ffe9a3, #a87a1e);
+  box-shadow: 0 0 10px rgba(255,210,110,.7);
+}
+.bw-text {
+  font-size: 19px; font-weight: 700; line-height: 1.8; color: #fff;
+  text-wrap: balance;
+  text-shadow: 0 2px 10px rgba(0,0,0,.5);
+  max-width: 92%;
+}
+/* پەیاما مەزن د شاشا تەمام دا */
+.welcome-overlay {
+  position: absolute; inset: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: center; padding: 80px 24px 24px;
+  background: radial-gradient(ellipse at center, rgba(14,43,69,.70), rgba(8,24,40,.92));
+  backdrop-filter: blur(6px);
+  animation: wo-fade .5s ease-out both;
+}
+.wo-card {
+  width: min(900px, 92%);
+  display: flex; flex-direction: column; align-items: center; gap: clamp(12px, 2.4vh, 26px);
+  padding: clamp(28px, 6vh, 64px) clamp(20px, 5vw, 64px);
+  text-align: center; direction: rtl;
+  border-radius: 28px;
+  background: linear-gradient(160deg, #143a5c 0%, #17507e 55%, #1a6fa8 100%);
+  border: 1px solid rgba(76,198,238,.55);
+  box-shadow: 0 30px 80px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.15);
+  animation: wo-pop .6s cubic-bezier(.2,.9,.3,1.2) both;
+}
+.wo-logo {
+  width: clamp(70px, 12vh, 120px); height: clamp(70px, 12vh, 120px);
+  border-radius: 22px; object-fit: cover; border: 3px solid #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4), 0 0 0 5px rgba(76,198,238,.4);
+}
+.wo-card .bw-title { font-size: clamp(28px, 5vw, 62px); }
+.wo-card .bw-text { font-size: clamp(18px, 2.6vw, 32px); }
+.wo-card .bw-divider { width: 60%; }
+.wo-close {
+  margin-top: 8px;
+  display: inline-flex; align-items: center; gap: 10px;
+  font: inherit; font-weight: 900; font-size: clamp(16px, 1.6vw, 20px);
+  color: #1a1205; cursor: pointer;
+  background: linear-gradient(180deg, #ffeeb0, #e2b450 50%, #a87a1e);
+  border: 0; border-radius: 999px; padding: 10px 34px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.35);
+  transition: transform .15s;
+}
+.wo-close:hover { transform: scale(1.06); }
+.wo-close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; }
+@keyframes wo-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes wo-pop { from { opacity: 0; transform: scale(.9); } to { opacity: 1; transform: none; } }
+
+/* پەیاما بخێرهاتنێ ل سەر مۆبایلێ: ل سەر تیروپشکێ، نە د ناڤ دا */
+.welcome-card {
+  display: none; flex-direction: column; align-items: center; gap: 10px;
+  margin: 0 0 16px; padding: 20px 16px; text-align: center;
+  border-radius: 18px;
+  background: linear-gradient(160deg, var(--navy), var(--blue));
+  border-bottom: 5px solid var(--accent);
+  box-shadow: 0 10px 24px rgba(20,58,92,.25);
+}
+.welcome-card .bw-title { font-size: 22px; }
+.welcome-card .bw-text { font-size: 16px; }
+@media (max-width: 700px) {
+  .welcome-card { display: flex; }
+  .b-welcome { display: none; }
+  .tool-bar .full-btn span:not(.eq) { display: none; }
+  .full-btn { padding: 7px 10px; }
+  .vol-ctl { padding: 4px 8px 4px 4px; gap: 4px; }
+  .vol-ctl input[type=range] { width: 64px; }
+  .vol-val { display: none; }
+}
+
+@keyframes bw-shine { to { background-position: -200% 0; } }
+@keyframes bw-in { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .b-welcome, .bw-title { animation: none; } }
+
+.b-label {
+  position: absolute; transform: translateX(-50%);
+  background: #fff; color: var(--navy); font-weight: 900; font-size: 1.1rem;
+  padding: 4px 34px; white-space: nowrap;
+  border-bottom: 4px solid var(--accent);
+  clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+}
+
+footer {
+  text-align: center; color: #dceefa; font-size: .9rem; font-weight: 600;
+  padding: 20px 16px 26px; background: var(--navy);
+  border-top: 6px solid var(--accent);
+}
+
+@media (max-width: 600px) {
+  .stripe.s1 { width: 60%; opacity: .55; }
+  .stripe.s2 { width: 42%; opacity: .55; }
+  .brand { padding: 20px 18px 0; }
+}
+@media (max-width: 480px) {
+  .logo, .logo-ph { width: 52px; height: 52px; }
+  .vs { width: 44px; height: 44px; font-size: .95rem; }
+  .team-name { font-size: .95rem; }
+  .match { padding: 18px 8px 12px; gap: 6px; }
+}
+
+/* سەردێڕێ بخێرهاتنێ د شێوازێ دوو لا دا */
+.bracket.double .b-welcome { gap: 10px; padding: 16px 28px; }
+.bracket.double .b-welcome .bw-title { font-size: 40px; line-height: 1.3; }
+.bracket.double .b-welcome .bw-text { font-size: 24px; line-height: 1.5; }
+.bracket.double .b-welcome .bw-divider { width: 40%; }
+
+/* ---------- ئەنجام ---------- */
+.score.score-rtl { direction: rtl; display: flex; justify-content: center; gap: 8px; }
+.score-rtl .dash, .res-score .dash, .res-pens-score .dash { opacity: .6; }
+
+#results { max-width: 1100px; }
+.res-stats { margin: 0 0 28px; }
+.res-stats .stat { min-width: 150px; }
+
+.sub-title {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 1.25rem; font-weight: 900; color: var(--navy);
+  margin: 10px 0 16px;
+}
+.sub-title::before { content: ""; width: 6px; height: 26px; border-radius: 3px; background: var(--blue-grad); }
+.sub-title::after { content: ""; flex: 1; height: 2px; background: linear-gradient(270deg, transparent, var(--sky)); }
+
+.res-empty {
+  text-align: center; font-weight: 800; color: var(--muted);
+  background: #fff; border: 2px dashed var(--line); border-radius: 16px;
+  padding: 34px 16px; margin-bottom: 30px;
+}
+
+.res-card {
+  position: relative;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px;
+  padding: 22px 16px 16px; margin-bottom: 14px;
+  border-radius: 16px; background: var(--card);
+  border: 1px solid var(--line); border-top: 5px solid var(--navy);
+  box-shadow: 0 8px 22px rgba(20,58,92,.10);
+}
+.res-team { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; min-width: 0; }
+.res-team.lose .res-logo, .res-team.lose .res-name { opacity: .45; }
+.res-logo {
+  width: 64px; height: 64px; border-radius: 50%; object-fit: contain;
+  border: 3px solid var(--sky); background: #fff; padding: 3px;
+  box-shadow: 0 4px 12px rgba(20,58,92,.15);
+}
+.res-logo.ph { display: grid; place-items: center; padding: 0; background: var(--navy); color: #fff; font-weight: 900; font-size: 1.4rem; }
+.res-team.win .res-logo { border-color: #1f9d55; box-shadow: 0 0 0 4px rgba(31,157,85,.18); }
+.res-name { font-weight: 800; font-size: 1.05rem; color: var(--navy); word-break: break-word; }
+.res-badge { font-size: .75rem; font-weight: 800; color: #fff; padding: 1px 12px; border-radius: 999px; }
+.res-badge.win { background: #1f9d55; }
+.res-badge.lose { background: #d64545; }
+.res-badge.draw { background: #8a97a6; }
+
+.res-center { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.res-score {
+  direction: rtl; display: flex; gap: 10px; align-items: center;
+  background: var(--navy); color: #fff; font-weight: 900; font-size: 2rem; line-height: 1.2;
+  padding: 6px 20px; border-radius: 12px; border-bottom: 4px solid var(--accent);
+}
+.res-pens {
+  display: flex; align-items: center; gap: 6px;
+  font-size: .82rem; font-weight: 800; color: var(--blue);
+  background: #e3f3fb; border-radius: 999px; padding: 1px 12px;
+}
+.res-pens-score { direction: rtl; display: flex; gap: 4px; }
+
+/* خشتەیا تیمان */
+.table-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  background: #fff; border-radius: 16px;
+  border: 1px solid var(--line); border-bottom: 5px solid var(--accent);
+  box-shadow: 0 8px 22px rgba(20,58,92,.10);
+}
+.standings { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 1rem; }
+.standings th {
+  background: var(--navy); color: #fff; font-weight: 800; font-size: .9rem;
+  padding: 12px 8px; white-space: nowrap;
+}
+.standings td { padding: 10px 8px; text-align: center; font-weight: 700; color: var(--text); border-top: 1px solid #edf2f7; white-space: nowrap; }
+.standings tbody tr:nth-child(even) { background: #f6f9fc; }
+.standings tbody tr:hover { background: #e9f5fc; }
+.standings .col-team { text-align: right; width: 34%; }
+.st-team { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--navy); }
+.st-logo {
+  width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; object-fit: contain;
+  border: 2px solid var(--sky); background: #fff;
+}
+.st-logo.ph { display: grid; place-items: center; background: var(--navy); color: #fff; font-size: .8rem; font-weight: 900; }
+.rank span {
+  display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 8px;
+  background: #e3edf5; color: var(--navy); font-weight: 900;
+}
+.standings tr.top .rank span { background: var(--blue-grad); color: #fff; }
+.standings tr.idle td { color: var(--muted); }
+.standings tr.idle .st-team { opacity: .6; }
+.gd { direction: ltr; unicode-bidi: isolate; }
+.gd.pos { color: #1f9d55; }
+.gd.neg { color: #d64545; }
+.pts { font-weight: 900; font-size: 1.1rem; color: var(--blue) !important; }
+
+@media (max-width: 480px) {
+  .res-logo { width: 50px; height: 50px; }
+  .res-score { font-size: 1.5rem; padding: 4px 14px; }
+  .res-name { font-size: .95rem; }
+  .res-card { padding: 22px 8px 12px; gap: 6px; }
+  .res-stats .stat { min-width: 96px; }
+}
+
+/* شاشێن مەزن (تی ڤی) */
+@media (min-width: 1600px) {
+  #results { max-width: 1400px; }
+  .res-logo { width: 84px; height: 84px; }
+  .res-name { font-size: 1.3rem; }
+  .res-score { font-size: 2.6rem; }
+  .standings { font-size: 1.2rem; }
+  .standings th { font-size: 1.05rem; padding: 14px 10px; }
+  .standings td { padding: 14px 10px; }
+  .st-logo { width: 40px; height: 40px; flex-basis: 40px; }
+}
+
+/* مۆبایل: خشتە ب لایێ چەپێ دچیت، ڕیز و ناڤێ تیمی دمینن */
+@media (max-width: 600px) {
+  .standings { min-width: 560px; font-size: .9rem; }
+  .standings th, .standings td { padding: 9px 6px; }
+  .standings .col-team { width: auto; }
+  .standings .rank, .standings th:first-child { position: sticky; right: 0; z-index: 1; width: 40px; min-width: 40px; }
+  .standings .col-team { position: sticky; right: 40px; z-index: 1; box-shadow: -6px 0 8px -6px rgba(20,58,92,.25); }
+  .standings td.rank, .standings td.col-team { background: #fff; }
+  .standings tbody tr:nth-child(even) td.rank, .standings tbody tr:nth-child(even) td.col-team { background: #f6f9fc; }
+  .standings th:first-child, .standings th.col-team { background: var(--navy); }
+  .st-team { gap: 6px; }
+  .st-logo { width: 26px; height: 26px; flex-basis: 26px; }
+}
+
+/* ---------- یاریا ب دوماهی هاتی (خشتەیێ یاریان) ---------- */
+.vs-row { direction: rtl; display: flex; align-items: center; gap: 16px; }
+.goal {
+  min-width: 1.1em; text-align: center; line-height: 1;
+  font-size: 2.6rem; font-weight: 900; color: var(--navy);
+}
+.done-badge {
+  background: #1f9d55; color: #fff; font-size: .78rem; font-weight: 800;
+  border-radius: 999px; padding: 2px 12px; white-space: nowrap;
+  box-shadow: 0 3px 8px rgba(31,157,85,.3);
+}
+.match.done { border-top-color: #1f9d55; }
+
+/* هشیاری د بەشێ ئەنجامان دا */
+.res-warn {
+  background: #fff7e6; border: 2px solid #f0a020; border-radius: 14px;
+  padding: 14px 18px; margin: 0 0 24px; color: #7a4a00; font-weight: 700;
+}
+.res-warn-title { font-weight: 900; margin-bottom: 6px; }
+.res-warn ul { margin: 0; padding-right: 22px; line-height: 1.9; }
+
+.table-note { text-align: center; color: var(--muted); font-weight: 700; font-size: .92rem; margin: 12px 0 0; }
+
+@media (max-width: 480px) {
+  .goal { font-size: 1.9rem; }
+  .vs-row { gap: 10px; }
+}
+@media (min-width: 1600px) {
+  .goal { font-size: 3.2rem; }
+}
+
+/* ---------- تیما ئێکێ: دەرباسبوون بێ یاری ---------- */
+.match.bye-card, .res-card.bye-card {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 40px;
+  border-top-color: #1f9d55;
+  background: linear-gradient(180deg, #f2fbf5, #ffffff);
+}
+.bye-badge { font-size: .95rem; padding: 6px 18px; }
+.st-bye {
+  font-size: .72rem; font-weight: 800; color: #1f7a45; white-space: nowrap;
+  background: #e3f6ea; border: 1px solid #b6e4c6; border-radius: 999px; padding: 0 10px;
+}
+.bracket .bnode.bye { border-color: #2ecc71; box-shadow: 0 0 0 2px rgba(46,204,113,.35); }
+@media (max-width: 480px) {
+  .bye-badge { font-size: .8rem; padding: 4px 12px; }
+}
+
+/* ---------- ژمارا یاریێ، تیمێ هێشتا نەدیار ---------- */
+.match-no {
+  position: absolute; top: 8px; left: 10px;
+  font-size: .7rem; font-weight: 800; color: var(--muted);
+  background: #eef4f9; border: 1px solid var(--line); border-radius: 999px; padding: 0 8px;
+}
+.team.tbd .logo-ph { background: #fff; color: var(--muted); border-style: dashed; }
+.team.tbd .team-name { color: var(--muted); font-size: .9rem; font-weight: 700; }
+.time.tba { background: #fff4d6; color: #7a5410; white-space: normal; text-align: center; }
+.day-date.tba { color: #7a5410; }
+
+/* ناڤێن ئینگلیزی د ناڤ لاپەرێ RTL دا ڕاست دیار ببن */
+.team-name, .res-name, .st-name, .bn-text, .chip-name { unicode-bidi: isolate; }
+
+/* ---------- فاینەل: شێوازێ زێڕین ---------- */
+.match.final, .res-card.final {
+  border: 2px solid #d4a73a; border-top: 6px solid #c8962a;
+  background: linear-gradient(180deg, #fff8e4, #ffffff 60%);
+  box-shadow: 0 0 0 3px rgba(212,167,58,.18), 0 12px 30px rgba(168,122,30,.25);
+}
+.match.final .round, .res-card.final .round {
+  background: linear-gradient(135deg, #8a6417, #e8c25c 50%, #a87a1e); color: #2b1d00;
+  font-size: .85rem; font-weight: 900; padding: 1px 16px;
+}
+.match.final .vs { background: linear-gradient(135deg, #a87a1e, #f3d27a); color: #2b1d00; }
+.day-num.final-num { background: linear-gradient(135deg, #8a6417, #e8c25c 50%, #a87a1e); color: #2b1d00; }
+
+/* ---------- ئاگەهداریا سەوز: تیم 19 بێ یاری دەرباس بوو ---------- */
+.bye-notice {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 22px;
+  margin: 0 0 24px; padding: 14px 18px; border-radius: 16px;
+  background: linear-gradient(180deg, #eafaf0, #f7fdf9);
+  border: 2px solid #5cc58a; box-shadow: 0 6px 18px rgba(31,157,85,.15);
+}
+.bye-text { font-weight: 800; color: #17703f; text-align: center; }
+.chip { display: flex; align-items: center; gap: 10px; }
+.chip-logo {
+  width: 46px; height: 46px; border-radius: 50%; object-fit: contain; flex: 0 0 auto;
+  border: 3px solid #1f9d55; background: #fff; padding: 2px;
+}
+.chip-logo.ph { display: grid; place-items: center; padding: 0; background: var(--navy); color: #fff; font-weight: 900; }
+.chip-name { font-weight: 900; font-size: 1.15rem; color: var(--navy); }
+
+/* ---------- بەنەرێ پاڵەوانی ---------- */
+.champ-banner {
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  margin: 0 0 26px; padding: 22px 18px 20px; text-align: center; border-radius: 22px;
+  background: radial-gradient(circle at 50% 0, rgba(255,233,163,.35), transparent 60%), linear-gradient(135deg, var(--navy-dark), var(--navy) 55%, #1b5a8a);
+  border: 3px solid #d4a73a;
+  box-shadow: 0 0 0 4px rgba(212,167,58,.2), 0 16px 40px rgba(14,43,69,.35);
+}
+.cb-cup { font-size: 3rem; line-height: 1; filter: drop-shadow(0 0 14px rgba(255,210,110,.8)); }
+.cb-title {
+  font-weight: 900; font-size: 1.35rem;
+  background: linear-gradient(90deg, #c8962a, #ffe9a3, #c8962a);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.champ-banner .chip.big .chip-logo { width: 84px; height: 84px; border-color: #e8c25c; box-shadow: 0 0 22px rgba(255,210,110,.55); }
+.champ-banner .chip.big .chip-name { color: #fff; font-size: 2rem; }
+.cb-end {
+  font-weight: 800; color: #2b1d00; background: linear-gradient(135deg, #c8962a, #ffe9a3, #c8962a);
+  border-radius: 999px; padding: 2px 18px;
+}
+#champDraw .champ-banner { margin-top: 6px; }
+@media (max-width: 480px) {
+  .cb-title { font-size: 1.05rem; }
+  .champ-banner .chip.big .chip-name { font-size: 1.4rem; }
+  .champ-banner .chip.big .chip-logo { width: 64px; height: 64px; }
+  .match-no { top: 6px; left: 6px; font-size: .62rem; }
+}
+@media (min-width: 1600px) {
+  .cb-title { font-size: 1.8rem; }
+  .champ-banner .chip.big .chip-name { font-size: 2.6rem; }
+}
+
+/* ---------- تیروپشک: ژمارا یاریێ و تیم 19 ---------- */
+.bracket .bno {
+  position: absolute; top: -9px; left: -9px;
+  min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px;
+  display: grid; place-items: center;
+  font-size: 11px; font-weight: 900; color: var(--navy); background: #fff;
+  border: 1.5px solid var(--sky); direction: ltr;
+}
+.bracket.double .bno { min-width: 28px; height: 28px; font-size: 15px; top: -13px; left: -13px; }
+.bracket .bnode.champ .bno { background: #ffe9a3; border-color: #c8962a; color: #2b1d00; }
+.bracket .bslot.bye { box-shadow: 0 0 0 3px #2ecc71, 0 6px 16px rgba(0,0,0,.28); }
+.bracket .bslot.bye .bnum { background: linear-gradient(135deg, #1f9d55, #2ecc71); }
+
+/* ئاگەهداریا بچووک ل سەر خشتەیێ یاریان (تیمێن 1–13 قوناغا ئێکێ نالیزن) */
+.bye-notice.small {
+  font-weight: 800; color: #17703f; text-align: center; font-size: 1rem;
+  padding: 10px 16px; gap: 2px; flex-direction: column;
+}
+@media (min-width: 1600px) { .bye-notice.small { font-size: 1.2rem; } }
+
+/* ---------- خانێن سەرکەفتیان ل سەر یاریگەها شین ---------- */
+.bracket .bnode:not(.champ) {
+  background: rgba(10,33,54,.9); border: 2px solid var(--accent);
+  box-shadow: 0 0 0 1px rgba(14,43,69,.6), 0 4px 14px rgba(4,18,32,.55), 0 0 10px rgba(76,198,238,.25);
+}
+
+/* ---------- فاینەل: خانا زێڕین یا پاڵەوانی ---------- */
+.bracket .bnode.champ {
+  color: #2b1d00; border: 2px solid #ffe9a3;
+  background: linear-gradient(115deg, #8a6417 0%, #c8962a 18%, #f3d27a 34%, #fff3c4 46%, #f3d27a 58%, #c8962a 78%, #a87a1e 100%);
+  background-size: 250% 100%; background-position: 0 0;
+  box-shadow: 0 0 0 3px rgba(168,122,30,.45), 0 0 30px rgba(255,210,110,.6), inset 0 1px 0 rgba(255,255,255,.5);
+  text-shadow: 0 1px 0 rgba(255,243,196,.6);
+}
+.bracket .bnode.champ img { border-color: #a87a1e; }
+.bracket .bnode.champ .bn-ph { font-size: .62em; font-weight: 800; opacity: .45; white-space: nowrap; }
+.bracket .bnode.champ.crowned { animation: champ-shine 4s ease-in-out infinite, champ-glow 2.4s ease-in-out infinite; }
+@keyframes champ-shine { 0%, 100% { background-position: 0 0; } 50% { background-position: 100% 0; } }
+@keyframes champ-glow {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(168,122,30,.45), 0 0 26px rgba(255,210,110,.55), inset 0 1px 0 rgba(255,255,255,.5); }
+  50% { box-shadow: 0 0 0 3px rgba(232,194,92,.7), 0 0 48px rgba(255,220,130,.9), inset 0 1px 0 rgba(255,255,255,.5); }
+}
+@media (prefers-reduced-motion: reduce) { .bracket .bnode.champ.crowned { animation: none; } }
+
+/* ---------- یارمەتیا تیروپشکێ: «تیمێن مایین» ---------- */
+#drawWarn { margin: 0 auto 14px; max-width: 1200px; }
+.draw-helper {
+  max-width: 1200px; margin: 0 auto 14px; padding: 10px 14px;
+  background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--sky);
+  border-radius: 14px; box-shadow: 0 6px 18px rgba(20,58,92,.10);
+}
+.dh-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.dh-title { font-weight: 900; color: var(--navy); }
+.dh-count {
+  font-weight: 800; font-size: .85rem; color: #fff; background: var(--blue-grad);
+  border-radius: 999px; padding: 2px 12px; white-space: nowrap;
+}
+.dh-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.dh-chip {
+  unicode-bidi: isolate; font-weight: 800; font-size: .88rem; color: var(--navy);
+  background: #e9f5fc; border: 1px solid #bfe2f4; border-radius: 999px; padding: 1px 12px;
+}
+.dh-done { font-weight: 800; color: #17703f; }
+.draw-helper.done { border-top-color: #1f9d55; }
+/* شاشا تەمام: تنێ ژمارەکا بچووک ل نک لوگۆیێ */
+.dh-full { display: none; }
+.is-full .dh-full:not([hidden]) {
+  display: block; position: absolute; top: 18px; left: 76px; z-index: 30;
+  font-weight: 800; font-size: .85rem; color: #fff;
+  background: rgba(14,43,69,.75); border: 1px solid var(--accent); border-radius: 999px; padding: 4px 14px;
+}
+
+/* تیما نوو یا د تیروپشکێ دا دهێتە دانان: تیشکەکا کورت */
+.bracket .bslot.just-drawn { animation: just-drawn 2.6s ease-out; z-index: 5; }
+@keyframes just-drawn {
+  0% { transform: scale(1.18); box-shadow: 0 0 0 6px #ffe9a3, 0 0 50px 12px rgba(255,210,110,.9); }
+  25% { transform: scale(1.06); box-shadow: 0 0 0 4px #ffe9a3, 0 0 34px 8px rgba(255,210,110,.75); }
+  60% { transform: scale(1); box-shadow: 0 0 0 3px rgba(255,233,163,.7), 0 0 22px rgba(255,210,110,.5); }
+  100% { transform: scale(1); box-shadow: 0 6px 16px rgba(0,0,0,.28); }
+}
+@media (prefers-reduced-motion: reduce) { .bracket .bslot.just-drawn { animation: none; outline: 3px solid #ffe9a3; } }
+
+/* ---------- دوگمێن «📷 وێنە» ---------- */
+.shot-btn {
+  order: 99; font: inherit; font-size: .78rem; font-weight: 800; cursor: pointer;
+  color: var(--navy); background: #fff; border: 1.5px solid var(--sky); border-radius: 999px;
+  padding: 1px 12px; white-space: nowrap; transition: background .2s, transform .2s;
+}
+.shot-btn:hover { background: #e3f3fb; transform: translateY(-1px); }
+.sub-title .shot-btn { order: 0; }
+.shot-tool span:first-child { font-size: 1.05rem; line-height: 1; }
+
+.shot-toast {
+  position: fixed; left: 50%; bottom: 28px; z-index: 3000; transform: translate(-50%, 20px);
+  opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s;
+  font-family: inherit; font-weight: 800; font-size: 1rem; color: #fff; text-align: center;
+  background: var(--navy); border: 2px solid var(--accent); border-radius: 14px;
+  padding: 10px 20px; max-width: min(90vw, 640px); box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.shot-toast.show { opacity: 1; transform: translate(-50%, 0); }
+.shot-toast.ok { border-color: #2ecc71; background: #17703f; }
+.shot-toast.err { border-color: #f0a020; background: #7a4a00; }
+
+/* کارتا وێنەی بۆ تۆڕێن جڤاکی: 1080px پان، ل دەرڤەی شاشێ دهێتە دروستکرن */
+.share-hold { position: fixed; left: -30000px; top: 0; pointer-events: none; }
+.share-card {
+  width: 1080px; padding: 48px 48px 34px; direction: rtl; color: var(--text);
+  font-family: "Rabar", "Vazirmatn", "Noto Sans Arabic", Tahoma, sans-serif;
+  background:
+    radial-gradient(ellipse 60% 30% at 50% 0%, rgba(76,198,238,.28), transparent 70%),
+    linear-gradient(170deg, var(--navy-dark) 0%, var(--navy) 45%, #1a5d92 100%);
+}
+.share-head { display: flex; align-items: center; justify-content: center; gap: 22px; }
+.share-logo { width: 104px; height: 104px; border-radius: 22px; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 6px 20px rgba(0,0,0,.35); }
+.share-titles { text-align: center; }
+.share-title {
+  font-size: 40px; font-weight: 900; line-height: 1.35;
+  background: linear-gradient(90deg, #c8962a, #ffe9a3, #c8962a);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.share-sub { color: #cfe9f7; font-weight: 700; font-size: 20px; }
+.share-badge {
+  display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: nowrap; white-space: nowrap;
+  margin: 26px auto 30px; width: max-content; max-width: 100%; padding: 10px 36px; border-radius: 999px;
+  background: #fff; border-bottom: 4px solid var(--accent); box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.sb-main { font-size: 28px; font-weight: 900; color: var(--navy); }
+.sb-sub { font-size: 24px; font-weight: 800; color: var(--blue); direction: rtl; }
+.share-body .match, .share-body .res-card { margin-bottom: 26px; }
+.share-body .match:last-child, .share-body .res-card:last-child { margin-bottom: 0; }
+.share-body .table-wrap { background: #fff; border-radius: 16px; overflow: hidden; }
+.share-body .table-note { color: #cfe9f7; margin-top: 14px; }
+.share-foot { text-align: center; color: #9fd4ee; font-weight: 800; font-size: 18px; margin-top: 30px; }
+/* مۆبایل: دوگمەیا وێنەی تنێ نیشانا 📷 */
+@media (max-width: 700px) {
+  .tool-bar .shot-tool span:first-child { display: inline; font-size: 1.1rem; }
+}
+/* خانێن سەرکەفتیان: لوگۆیا بچووکتر و پەراوێزا کێمتر، دا کو ناڤ ل سەر ئێک ڕێز مەزنتر بمینیت */
+.bracket.double .bnode:not(.champ) { padding: 0 10px; gap: 6px; }
+.bracket.double .bnode:not(.champ) img { width: 30px; height: 30px; flex-basis: 30px; }
+
+/* ---------- لوگۆیێن مەزن و گرۆڤەر (بادج) ---------- */
+/* تیروپشک: لوگۆ ل لێڤا ناڤخۆیا خانێ، نێزیکی 87٪ ژ بلندیا خانێ؛ ناڤ جهێ مایی دگریت */
+.bracket .bname img, .bracket .bnode img {
+  border-radius: 50%; object-fit: contain; background: #fff; padding: 3px;
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 0 0 1.5px rgba(232,194,92,.6), 0 2px 6px rgba(0,0,0,.3);
+}
+.bracket .bslot .bn-text { flex: 1 1 auto; }
+.bracket.double .bname { padding-inline: 5px 10px; }
+.bracket.double .bslot .bname img {
+  width: 68px; height: 68px; flex: 0 0 68px; padding: 6px; border-width: 2px;
+  box-shadow: 0 0 0 2px rgba(232,194,92,.65), 0 3px 10px rgba(0,0,0,.3);
+}
+.bracket.double .bnode:not(.champ) img { width: 50px; height: 50px; flex: 0 0 50px; padding: 4px; }
+.bracket.double .bnode.champ img {
+  width: 78px; height: 78px; flex: 0 0 78px; padding: 6px; border: 2px solid #ffe9a3;
+  box-shadow: 0 0 0 2px #a87a1e, 0 3px 10px rgba(0,0,0,.35);
+}
+.bracket.single .bslot .bname img { width: 32px; height: 32px; flex: 0 0 32px; padding: 2px; }
+.bracket.single .bnode img { width: 26px; height: 26px; flex: 0 0 26px; padding: 2px; }
+
+/* خشتە، ئەنجام و خشتەیا تیمان: لوگۆیێن کێمەک مەزنتر ب هەمان شێوازی */
+.logo, .logo-ph { width: 76px; height: 76px; }
+.logo { padding: 6px; box-shadow: 0 0 0 2px rgba(232,194,92,.55), 0 4px 12px rgba(20,58,92,.18); }
+.res-logo { width: 76px; height: 76px; padding: 6px; }
+img.res-logo { box-shadow: 0 0 0 2px rgba(232,194,92,.55), 0 4px 12px rgba(20,58,92,.18); }
+.st-logo { width: 38px; height: 38px; flex-basis: 38px; }
+img.st-logo { padding: 2px; box-shadow: 0 0 0 1.5px rgba(232,194,92,.55); }
+@media (min-width: 1600px) {
+  .res-logo { width: 96px; height: 96px; }
+  .st-logo { width: 46px; height: 46px; flex-basis: 46px; }
+}
+@media (max-width: 600px) {
+  .logo, .logo-ph { width: 60px; height: 60px; }
+  .res-logo { width: 58px; height: 58px; }
+  .st-logo { width: 30px; height: 30px; flex-basis: 30px; }
+}
+
+/* ---------- وێنەیێن تیروپشکێ (پوستەر) — ل دەرڤەی شاشێ، قەبارەکا جێگیر ---------- */
+.poster.bracket-frame { border-radius: 0; border-bottom: 0; box-shadow: none; overflow: hidden; direction: rtl; }
+.poster .poster-logo { position: absolute; z-index: 2; border-radius: 24px; border: 3px solid var(--accent); box-shadow: 0 6px 20px rgba(0,0,0,.35); object-fit: cover; }
+.poster .b-welcome, .poster .bw-title { animation: none; }
+.poster .poster-banner { gap: 12px; padding: 18px 30px; z-index: 2; }
+.poster .poster-banner .bw-title { font-size: 58px; line-height: 1.25; }
+.poster .poster-banner .bw-text { font-size: 30px; line-height: 1.4; }
+.poster .poster-banner .bw-divider { width: 45%; }
+.poster .poster-foot { position: absolute; left: 0; right: 0; bottom: 16px; z-index: 2; text-align: center; color: #cfe9f7; font-weight: 800; }
+.poster .bracket { z-index: 1; }
+.poster .bnode.champ.crowned { animation: none; }
+
+/* خانێن تیروپشکا وێنەیان: ناڤ و لوگۆیێن مەزن */
+.bracket.poster-board .bname { font-size: 46px; padding-inline: 6px 12px; }
+.bracket.poster-board .bslot .bnum { flex-basis: 62px; font-size: 38px; }
+.bracket.poster-board .bslot .bname img { width: 80px; height: 80px; flex: 0 0 80px; padding: 6px; }
+.bracket.poster-board .bslot.extra .bname img { width: 74px; height: 74px; flex: 0 0 74px; }
+.bracket.poster-board .bnode { font-size: 28px; }
+.bracket.poster-board .bnode:not(.champ) img { width: 46px; height: 46px; flex: 0 0 46px; padding: 3px; }
+.bracket.poster-board .bnode.champ { font-size: 46px; }
+.bracket.poster-board .bnode.champ img { width: 84px; height: 84px; flex: 0 0 84px; }
+.bracket.poster-board .bno { min-width: 30px; height: 30px; font-size: 16px; top: -14px; left: -14px; }
+.bracket.poster-board .b-label { font-size: 1.5rem; }
+.bracket.half-board .bnode:not(.champ) { font-size: 20px; padding: 0 6px; }
+.bracket.half-board .bnode:not(.champ) img { display: none; }
+
+.half-head { position: absolute; top: 28px; left: 130px; right: 130px; z-index: 2; text-align: center; }
+.half-title {
+  font-size: 40px; font-weight: 900; line-height: 1.3;
+  background: linear-gradient(90deg, #c8962a, #ffe9a3, #c8962a);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.half-pill {
+  display: inline-block; margin-top: 12px; padding: 6px 28px; border-radius: 999px;
+  background: #fff; color: var(--navy); font-weight: 900; font-size: 30px;
+  border-bottom: 4px solid var(--accent); box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+
+/* ---------- کارتا ستوونی 4:5 (لیست، ڕۆژ، ئەنجام، خشتە) ---------- */
+.share-card.portrait { display: flex; flex-direction: column; padding: 40px 44px 26px; overflow: hidden; }
+.share-card.portrait .share-badge { margin: 20px auto 22px; }
+.share-card.portrait .share-body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+.share-card.portrait .share-inner { width: 100%; transform-origin: top center; }
+.share-card.portrait .share-foot { margin-top: 16px; }
+/* کارتێن یاریان و ئەنجامان: نڤیسین و لوگۆیێن مەزن بۆ مۆبایلێ */
+.share-card.portrait .match, .share-card.portrait .res-card { padding: 40px 24px 26px; border-radius: 26px; gap: 16px; }
+.share-card.portrait .team-name, .share-card.portrait .res-name { font-size: 40px; line-height: 1.25; }
+.share-card.portrait .logo, .share-card.portrait .logo-ph, .share-card.portrait .res-logo { width: 150px; height: 150px; font-size: 44px; }
+.share-card.portrait .vs { width: 96px; height: 96px; font-size: 34px; }
+.share-card.portrait .goal { font-size: 92px; }
+.share-card.portrait .res-score { font-size: 72px; padding: 6px 26px; }
+.share-card.portrait .time { font-size: 30px; padding: 4px 22px; }
+.share-card.portrait .round { font-size: 26px; padding: 2px 22px; top: -20px; }
+.share-card.portrait .match-no { font-size: 24px; padding: 2px 14px; top: 14px; left: 16px; }
+.share-card.portrait .done-badge { font-size: 26px; padding: 4px 20px; }
+.share-card.portrait .res-badge { font-size: 26px; padding: 2px 20px; }
+.share-card.portrait .res-pens { font-size: 26px; }
+.share-card.portrait .team.tbd .team-name { font-size: 32px; }
+/* خشتەیا تیمان */
+.share-card.portrait .standings { font-size: 30px; }
+.share-card.portrait .standings th { font-size: 26px; padding: 14px 8px; }
+.share-card.portrait .standings td { padding: 12px 8px; }
+.share-card.portrait .st-logo { width: 54px; height: 54px; flex-basis: 54px; }
+.share-card.portrait .table-note { font-size: 24px; }
+
+/* لیستا یاریان */
+.list-card .ml-stage {
+  margin: 18px 0 10px; padding: 4px 22px; width: fit-content; border-radius: 999px;
+  background: linear-gradient(135deg, var(--blue), var(--sky)); color: #fff; font-weight: 900; font-size: 30px;
+}
+.list-card .ml-stage:first-child { margin-top: 0; }
+.list-card .ml-row {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 10px; padding: 8px 16px;
+  background: #fff; border-radius: 18px; border-right: 8px solid var(--sky);
+  box-shadow: 0 4px 14px rgba(0,0,0,.18); font-size: 30px; font-weight: 800; color: var(--navy);
+}
+.list-card .ml-row.done { border-right-color: #1f9d55; }
+.list-card .ml-row.final { border-right-color: #c8962a; background: linear-gradient(180deg, #fff8e4, #fff); }
+.list-card .ml-no { flex: 0 0 auto; font-size: 22px; font-weight: 900; color: var(--muted); background: #eef4f9; border-radius: 999px; padding: 2px 12px; white-space: nowrap; }
+.list-card .ml-t { flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; }
+.list-card .ml-t.away { justify-content: flex-end; }
+.list-card .ml-name { white-space: nowrap; unicode-bidi: isolate; }
+.list-card .ml-t.tbd .ml-name { color: var(--muted); font-size: 24px; font-weight: 700; }
+.list-card .ml-logo { width: 58px; height: 58px; flex: 0 0 58px; border-radius: 50%; object-fit: contain; background: #fff; padding: 3px; border: 2px solid var(--accent); box-shadow: 0 0 0 2px rgba(232,194,92,.55); }
+.list-card .ml-logo.ph { display: grid; place-items: center; padding: 0; background: var(--navy); color: #fff; font-size: 24px; }
+.list-card .ml-t.tbd .ml-logo.ph { background: #fff; color: var(--muted); border-style: dashed; }
+.list-card .ml-mid { flex: 0 0 auto; min-width: 74px; text-align: center; font-weight: 900; color: #fff; background: var(--blue-grad); border-radius: 14px; padding: 4px 12px; font-size: 26px; }
+.list-card .ml-mid.score { background: var(--navy); font-size: 30px; display: flex; gap: 8px; justify-content: center; }
+.list-card .ml-when { flex: 0 0 auto; font-size: 22px; color: var(--blue); font-weight: 800; white-space: nowrap; }
+
+/* مێنیویا «📷 وێنە» */
+.shot-menu {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 40; display: flex; flex-direction: column; gap: 6px;
+  background: #fff; border: 2px solid var(--sky); border-radius: 16px; padding: 8px; box-shadow: 0 12px 30px rgba(0,0,0,.35);
+  min-width: 300px; direction: rtl;
+}
+.shot-item {
+  font: inherit; font-weight: 800; font-size: .95rem; color: var(--navy); text-align: right; cursor: pointer;
+  background: #f2f8fc; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px;
+}
+.shot-item:hover { background: #e3f3fb; border-color: var(--sky); }
+/* لیستا یاریان: سەری و ڕێزێن کورتتر، دا کو 18 یاری ب نڤیسینا مەزنتر جه بگرن */
+.list-card.share-card.portrait { padding: 30px 36px 20px; }
+.list-card .share-logo { width: 84px; height: 84px; border-radius: 18px; }
+.list-card .share-title { font-size: 40px; }
+.list-card .share-sub { display: none; }
+.list-card.share-card.portrait .share-badge { margin: 14px auto 16px; padding: 6px 30px; }
+.list-card .sb-main { font-size: 30px; }
+.list-card .sb-sub { font-size: 24px; }
+.list-card .ml-stage { margin: 10px 0 6px; font-size: 26px; padding: 2px 20px; }
+.list-card .ml-row { padding: 4px 14px; margin-bottom: 6px; gap: 12px; border-radius: 14px; }
+.list-card .ml-logo { width: 50px; height: 50px; flex-basis: 50px; }
+.list-card.share-card.portrait .share-foot { margin-top: 10px; font-size: 18px; }
+.share-card.portrait .standings td.pts { font-size: 32px; }
+
+/* ---------- بەشێ ئەنجامان: دوو دیتن (ئەنجامێن یاریان / خشتەیا تیمان) ---------- */
+.subtabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin: -8px 0 26px; }
+.subtabs a {
+  color: var(--navy); text-decoration: none; font-weight: 800; font-size: .92rem;
+  border: 2px solid var(--navy); border-radius: 999px; padding: 4px 18px; background: #fff;
+}
+.subtabs a:hover { border-color: var(--blue); color: var(--blue); }
+.subtabs a.active { background: var(--navy); color: #fff; border-color: var(--navy); box-shadow: inset 0 -4px 0 var(--accent); }
+.res-view.fade-in { animation: res-fade .35s ease-out; }
+@keyframes res-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .res-view.fade-in { animation: none; } }
+#resTable .table-wrap { width: 100%; }
+#resTable .standings { width: 100%; }
+/* لیستا یاریان: گۆلێن تیمێ ئێکێ ل لایێ تیمێ ئێکێ (ڕاست) */
+.list-card .ml-mid.score { direction: rtl; min-width: 110px; }
+
+/* ---------- وێنە: ژمارا یاریێ، سەرپەرشتیار، ئامادەکەر ---------- */
+.match-no, .share-card .round, .share-card .time, .share-card .done-badge, .share-card .res-badge { white-space: nowrap; }
+.sup-pill {
+  display: inline-block; margin-top: 10px; padding: 4px 22px; border-radius: 999px;
+  color: #fff; font-weight: 800; font-size: 22px; white-space: nowrap;
+  background: rgba(14,43,69,.55); border: 1.5px solid #d4a73a;
+  box-shadow: 0 4px 14px rgba(0,0,0,.2);
+}
+.poster .poster-sup { position: absolute; z-index: 2; top: 44px; right: 40px; font-size: 26px; margin: 0; }
+.half-head .sup-pill { font-size: 22px; display: table; margin: 10px auto 0; }
+
+.credit { text-align: center; direction: rtl; }
+.credit .cr-divider { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 auto 8px; width: 46%; }
+.credit .cr-divider::before, .credit .cr-divider::after { content: ""; flex: 1; height: 1.5px; }
+.credit .cr-divider::before { background: linear-gradient(90deg, transparent, #e2b450); }
+.credit .cr-divider::after { background: linear-gradient(90deg, #e2b450, transparent); }
+.credit .cr-divider span { width: 9px; height: 9px; background: #e2b450; transform: rotate(45deg); box-shadow: 0 0 8px rgba(226,180,80,.7); }
+.credit .cr-row { display: flex; align-items: baseline; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.cr-lbl { color: rgba(255,255,255,.85); font-weight: 600; }
+.cr-name { color: #e8c25c; font-weight: 700; letter-spacing: .06em; unicode-bidi: isolate; direction: ltr; }
+.cr-sep { color: rgba(255,255,255,.5); }
+.cr-copy { color: #9fd4ee; font-weight: 700; }
+.share-card .credit { font-size: 22px; }
+.share-card.portrait .share-foot { margin-top: 14px; color: inherit; font-size: 22px; }
+.poster .poster-foot.credit { bottom: 12px; color: inherit; }
+
+/* بنێ ماڵپەری */
+footer .ft-credit { margin-top: 6px; font-size: .85rem; }
+footer .ft-credit .cr-lbl { margin-inline-end: 6px; }
+
+/* وێنەیێن ڕۆژان: جهێ زێدەتر دناڤبەرا کارتان، و کارتا ب تنێ مەزنتر */
+.share-card.portrait .share-inner > .match, .share-card.portrait .share-inner > .res-card { margin-bottom: 44px; }
+.share-card.portrait .share-inner > :last-child { margin-bottom: 0; }
+.share-card.portrait .match .center, .share-card.portrait .res-center { gap: 14px; padding: 0 10px; }
+.share-card.portrait .share-inner.single > .match, .share-card.portrait .share-inner.single > .res-card { padding: 60px 30px 44px; }
+.share-card.portrait .share-inner.single .logo, .share-card.portrait .share-inner.single .logo-ph,
+.share-card.portrait .share-inner.single .res-logo { width: 190px; height: 190px; }
+.share-card.portrait .share-inner.single .team-name, .share-card.portrait .share-inner.single .res-name { font-size: 48px; }
+.share-card.portrait .match-no { font-size: 24px; padding: 3px 16px; top: 16px; left: 18px; }
+
+/* وێنەیێ خشتەیا تیمان: هەمی پانی، ڕێز و ژمارێن مەزن */
+.table-card.share-card.portrait { padding: 40px 54px 26px; }
+.table-card .share-body .table-wrap { width: 100%; border-radius: 22px; }
+.table-card .standings { width: 100%; font-size: 36px; }
+.table-card .standings th { font-size: 28px; padding: 18px 8px; }
+.table-card .standings td { padding: 14px 8px; }
+.table-card .st-team { gap: 14px; }
+.table-card .st-logo { width: 66px; height: 66px; flex-basis: 66px; }
+.table-card .st-logo.ph { font-size: 22px; }
+.table-card .rank span { width: 58px; height: 58px; border-radius: 50%; font-size: 30px; background: transparent; color: var(--navy); }
+.table-card .standings tbody tr:nth-child(1) .rank span { background: linear-gradient(135deg, #a87a1e, #ffe9a3 50%, #c8962a); color: #2b1d00; box-shadow: 0 0 0 3px rgba(168,122,30,.35); }
+.table-card .standings tbody tr:nth-child(2) .rank span { background: linear-gradient(135deg, #8d99a6, #f1f4f7 50%, #a9b4bf); color: #1c2733; box-shadow: 0 0 0 3px rgba(141,153,166,.35); }
+.table-card .standings tbody tr:nth-child(3) .rank span { background: linear-gradient(135deg, #8a5a2b, #e3b07a 50%, #a8703a); color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.35); box-shadow: 0 0 0 3px rgba(138,90,43,.35); }
+.table-card .standings td.pts { font-size: 40px; font-weight: 900; background: rgba(53,166,222,.10); }
+.table-card .standings tr.idle td { color: #5f7489; }
+.table-card .standings tr.idle .st-team { opacity: .75; }
+.table-card .table-note { font-size: 26px; margin-top: 16px; }
+.share-card.portrait .team.tbd .team-name { white-space: nowrap; font-size: 34px; }
+
+/* ---------- خشتەیا تیمان: یاسایێن دەرکەفتنێ ---------- */
+.standings .col-status { text-align: center; white-space: nowrap; }
+.st-pill {
+  display: inline-block; white-space: nowrap; border-radius: 999px; padding: 2px 12px;
+  font-size: .78rem; font-weight: 800; border: 1.5px solid transparent;
+}
+.st-pill.in { background: #e3f6ea; color: #17703f; border-color: #8fd3aa; }
+.st-pill.out { background: #fde8e8; color: #b42318; border-color: #f3a9a9; }
+.st-pill.idle { background: #eef2f6; color: #5f7489; border-color: #d3dde7; }
+.st-pill.champ { background: linear-gradient(135deg, #a87a1e, #ffe9a3 50%, #c8962a); color: #2b1d00; border-color: #c8962a; }
+.st-pill.second { background: linear-gradient(135deg, #8d99a6, #f1f4f7 50%, #a9b4bf); color: #1c2733; border-color: #a9b4bf; }
+/* تیمێن دەرکەفتی: ڕێزا سۆر یا نەرم */
+.standings tbody tr.out td { background: #fff1f1 !important; color: #8a3a3a; }
+.standings tbody tr.out td:first-child { box-shadow: inset -4px 0 0 #e05252; }
+.standings tbody tr.out td:last-child { box-shadow: inset 4px 0 0 #e05252; }
+.standings tr.out .st-logo { filter: grayscale(1); opacity: .55; }
+.standings tr.out .st-name { text-decoration: line-through; text-decoration-color: rgba(180,35,24,.55); text-decoration-thickness: 2px; opacity: .8; }
+.standings tr.out td.pts { color: #d64545 !important; }
+.standings tr.champ td { background: #fff8e4 !important; }
+@media (min-width: 1600px) { .st-pill { font-size: .95rem; padding: 3px 14px; } }
+/* وێنەیێ خشتەیێ */
+.table-card .st-pill { font-size: 24px; padding: 4px 16px; border-width: 2px; }
+.table-card .standings tbody tr.out td:first-child { box-shadow: inset -8px 0 0 #e05252; }
+.table-card .standings tbody tr.out td:last-child { box-shadow: inset 8px 0 0 #e05252; }
+.table-card .standings tbody tr.out td.pts { background: #fff1f1 !important; }
+.table-card .standings { font-size: 32px; }
+.st-pill .st-sub::before { content: " — "; }
+.table-card .st-pill { font-size: 22px; padding: 4px 14px; line-height: 1.25; }
+.table-card .st-pill .st-sub { display: block; font-size: 18px; font-weight: 700; opacity: .85; }
+.table-card .st-pill .st-sub::before { content: none; }
+.table-card .standings { font-size: 30px; }
+.table-card .standings th, .table-card .standings td { padding-left: 6px; padding-right: 6px; }
+
+/* ---------- وێنەیێن ڕۆژان: هەمی تشت د ناڤەڕاستێ دا ---------- */
+.day-layout.share-card.portrait { padding: 44px 60px 30px; }
+.day-layout .share-head { flex-direction: column; gap: 12px; }
+.day-layout .share-logo { width: 150px; height: 150px; border-radius: 30px; }
+.day-layout .share-titles { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.day-layout .share-title { font-size: 46px; line-height: 1.3; }
+.day-layout .share-sub { font-size: 26px; }
+.day-layout .sup-pill { margin-top: 6px; font-size: 24px; }
+.day-layout .day-mid { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 34px; }
+.day-layout .day-mid .share-badge { margin: 0 auto; padding: 12px 44px; }
+.day-layout .sb-main { font-size: 36px; }
+.day-layout .sb-sub { font-size: 30px; }
+.day-layout .day-mid .share-body { flex: 0 0 auto; overflow: visible; }
+.day-layout .share-inner { display: flex; flex-direction: column; align-items: stretch; gap: 44px; transform-origin: top center; }
+.share-card.portrait.day-layout .share-inner > .match,
+.share-card.portrait.day-layout .share-inner > .res-card { margin: 0; }
+.day-msg {
+  margin: 0 20px; padding: 26px 34px; border-radius: 26px; text-align: center; direction: rtl;
+  color: #fff; font-size: 32px; font-weight: 700; line-height: 1.7;
+  background: linear-gradient(160deg, rgba(14,43,69,.55), rgba(255,255,255,.08));
+  border: 2px solid #d4a73a; box-shadow: 0 10px 28px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.12);
+}
+.day-msg b { color: #f3d27a; font-weight: 900; unicode-bidi: isolate; }
+.day-layout .share-inner.single .day-msg { font-size: 36px; padding: 32px 40px; }
+.day-layout .share-foot { margin-top: 20px; }
+.day-layout .share-head, .day-layout .share-foot { flex-shrink: 0; }
+.day-layout .day-mid { overflow: hidden; gap: 30px; }
+.day-msg b { white-space: nowrap; }
+.share-card.portrait.day-layout .share-inner { gap: 36px; }
+
+/* ---------- وێنەیێن ستوونی: شێوازێ «شیشە» (شینێ تاری + زێڕین)، هەمی وەکی ئێک خێزان ---------- */
+.share-card.portrait {
+  --glass: rgba(255,255,255,.10);
+  --glass-2: rgba(255,255,255,.06);
+  --glass-line: rgba(76,198,238,.5);
+  --gold: #e8c25c;
+}
+/* سەری: جهێ وەکهەڤ دناڤبەرا لوگۆ، ناڤونیشان، وەرز، سەرپەرشتیار و ڕۆژێ */
+.day-layout .share-head { gap: 18px; }
+.day-layout .share-titles { gap: 16px; }
+.day-layout .share-sub { line-height: 1.2; }
+.day-layout .sup-pill { margin-top: 0; }
+.day-layout .day-mid { margin-top: 28px; gap: 34px; }
+.share-card.portrait .sup-pill { background: var(--glass); border-color: rgba(232,194,92,.75); color: #fff; }
+
+/* نیشانا ڕۆژێ / ناڤونیشانێ وێنەی */
+.share-card.portrait .share-badge {
+  background: rgba(14,43,69,.55); border: 2px solid var(--gold); border-bottom-width: 2px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.12);
+}
+.share-card.portrait .sb-main { color: #fff; }
+.share-card.portrait .sb-sub { color: var(--gold); }
+
+/* کارتێن یاریان و ئەنجامان */
+.share-card.portrait .match, .share-card.portrait .res-card {
+  background: linear-gradient(160deg, rgba(255,255,255,.13), rgba(255,255,255,.05));
+  border: 2px solid var(--glass-line); border-top: 2px solid var(--glass-line);
+  box-shadow: 0 12px 30px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.18), inset 0 0 40px rgba(76,198,238,.08);
+}
+.share-card.portrait .match.done, .share-card.portrait .res-card { border-top-color: rgba(46,204,113,.7); }
+.share-card.portrait .match.final, .share-card.portrait .res-card.final {
+  background: linear-gradient(160deg, rgba(255,233,163,.16), rgba(255,255,255,.05));
+  border-color: rgba(232,194,92,.8);
+}
+.share-card.portrait .team-name, .share-card.portrait .res-name { color: #fff; }
+.share-card.portrait .team.tbd .team-name { color: #b9d7ea; }
+.share-card.portrait .team.tbd .logo-ph { background: rgba(255,255,255,.08); color: #cfe9f7; border-color: rgba(207,233,247,.6); }
+.share-card.portrait .logo, .share-card.portrait img.res-logo {
+  background: #fff; border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(232,194,92,.55), 0 6px 16px rgba(0,0,0,.3);
+}
+.share-card.portrait .logo-ph, .share-card.portrait .res-logo.ph { background: #0e2b45; color: #fff; border-color: var(--accent); }
+.share-card.portrait .time { background: rgba(14,43,69,.6); color: #dff3ff; border: 1px solid rgba(76,198,238,.35); }
+.share-card.portrait .time.tba { background: rgba(232,194,92,.15); color: #ffe9a3; border-color: rgba(232,194,92,.5); }
+.share-card.portrait .round { background: linear-gradient(135deg, #1987c9, #35a6de); color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+.share-card.portrait .match-no { background: rgba(14,43,69,.6); color: var(--gold); border: 1px solid rgba(232,194,92,.55); }
+.share-card.portrait .goal { color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.35); }
+.share-card.portrait .res-score { background: rgba(14,43,69,.7); color: #fff; border-bottom-color: var(--gold); }
+.share-card.portrait .res-pens { background: rgba(14,43,69,.6); color: #dff3ff; border: 1px solid rgba(76,198,238,.35); }
+.share-card.portrait .done-badge { background: rgba(31,157,85,.85); box-shadow: 0 3px 10px rgba(0,0,0,.25); }
+.share-card.portrait .res-badge.win { background: rgba(31,157,85,.9); }
+.share-card.portrait .res-badge.lose { background: rgba(214,69,69,.88); }
+.share-card.portrait .res-team.lose .res-logo, .share-card.portrait .res-team.lose .res-name { opacity: .6; }
+.share-card.portrait .day-msg { background: var(--glass-2); }
+
+/* لیستا یاریان */
+.list-card .ml-row {
+  background: linear-gradient(160deg, rgba(255,255,255,.12), rgba(255,255,255,.05)); color: #fff;
+  border: 1.5px solid var(--glass-line); border-right: 8px solid var(--accent);
+  box-shadow: 0 4px 14px rgba(0,0,0,.22);
+}
+.list-card .ml-row.done { border-right-color: #2ecc71; }
+.list-card .ml-row.final { border-right-color: var(--gold); background: linear-gradient(160deg, rgba(255,233,163,.16), rgba(255,255,255,.05)); }
+.list-card .ml-no { background: rgba(14,43,69,.6); color: var(--gold); border: 1px solid rgba(232,194,92,.5); }
+.list-card .ml-t.tbd .ml-name { color: #b9d7ea; }
+.list-card .ml-t.tbd .ml-logo.ph { background: rgba(255,255,255,.08); color: #cfe9f7; }
+.list-card .ml-when { color: #9fdcf7; }
+.list-card .ml-mid.score { background: rgba(14,43,69,.75); border: 1px solid var(--gold); }
+
+/* وێنەیێن مۆبایلێ یێن تیروپشکێ */
+.half-head .half-pill { background: rgba(14,43,69,.55); color: #fff; border: 2px solid var(--gold, #e8c25c); border-bottom-width: 2px; }
+.half-head .sup-pill { background: rgba(255,255,255,.10); }
+
+/* خشتەیا تیمان */
+.table-card .share-body .table-wrap {
+  background: linear-gradient(160deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+  border: 2px solid var(--glass-line); box-shadow: 0 12px 30px rgba(0,0,0,.28);
+}
+.table-card .standings th { background: rgba(14,43,69,.75); color: #fff; }
+.table-card .standings td { color: #fff; border-top-color: rgba(255,255,255,.10); }
+.table-card .standings tbody tr:nth-child(even) td { background: rgba(255,255,255,.04); }
+.table-card .st-team { color: #fff; }
+.table-card .rank span { color: #fff; }
+.table-card .standings tr.idle td, .table-card .standings tr.idle .st-team { color: #b9d7ea; opacity: 1; }
+.table-card .standings td.pts { background: rgba(76,198,238,.14); color: #9fdcf7 !important; }
+.table-card .gd.pos { color: #5fe3a1; }
+.table-card .gd.neg { color: #ff9a9a; }
+.table-card .standings tbody tr.out td { background: rgba(214,69,69,.16) !important; color: #ffd0d0; }
+.table-card .standings tr.out .st-name { color: #ffd0d0; text-decoration-color: rgba(255,154,154,.8); }
+.table-card .standings tbody tr.out td.pts { background: rgba(214,69,69,.22) !important; color: #ff9a9a !important; }
+.table-card .standings tr.champ td { background: rgba(232,194,92,.18) !important; }
+.table-card .st-pill.in { background: rgba(31,157,85,.25); color: #b8f5d0; border-color: rgba(95,227,161,.6); }
+.table-card .st-pill.out { background: rgba(214,69,69,.22); color: #ffd0d0; border-color: rgba(255,154,154,.6); }
+.table-card .st-pill.idle { background: rgba(255,255,255,.08); color: #cfe9f7; border-color: rgba(207,233,247,.4); }
+.table-card .table-note { color: #cfe9f7; }
+.table-card .standings tbody tr, .table-card .standings tbody tr:nth-child(even) { background: transparent; }
+.table-card .standings td.rank, .table-card .standings td.col-team { background: transparent; }
+
+/* ---------- مێنیویا قەبارێ وێنەی (ل نک هەر دوگمەیەکا 📷) ---------- */
+.shot-menu.floating { position: fixed; top: 0; right: auto; z-index: 3500; min-width: 330px; max-width: calc(100vw - 16px); }
+.shot-menu .shot-head { font-weight: 900; color: var(--navy); font-size: .95rem; text-align: center; padding: 4px 6px 8px; border-bottom: 1px solid var(--line); margin-bottom: 2px; }
+.shot-item { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.shot-item .si-main { font-weight: 800; }
+.shot-item .si-sub { font-size: .75rem; font-weight: 700; color: var(--muted); direction: rtl; }
+
+/* ستۆری 9:16: ناڤەڕۆک ب جهێ زێدە مەزنتر */
+.share-card.portrait.fmt-story.day-layout .day-mid { gap: 46px; }
+.share-card.portrait.fmt-story.day-layout .share-inner { gap: 54px; }
+.share-card.portrait.fmt-story .share-logo { width: 170px; height: 170px; }
+.share-card.portrait.fmt-story.day-layout .day-msg { font-size: 36px; }
+.share-card.portrait.fmt-story.list-card .ml-row { padding: 10px 16px; margin-bottom: 12px; }
+.share-card.portrait.fmt-story.list-card .ml-stage { margin: 18px 0 10px; }
+/* چوارگۆش 1:1: سەرێ کورتتر */
+.share-card.portrait.fmt-square.day-layout { padding: 30px 50px 20px; }
+.share-card.portrait.fmt-square .share-logo { width: 96px; height: 96px; border-radius: 22px; }
+.share-card.portrait.fmt-square .share-title { font-size: 38px; }
+.share-card.portrait.fmt-square.day-layout .share-head { gap: 10px; }
+.share-card.portrait.fmt-square.day-layout .share-titles { gap: 10px; }
+.share-card.portrait.fmt-square.day-layout .day-mid { margin-top: 18px; gap: 22px; }
+.share-card.portrait.fmt-square .share-foot { margin-top: 10px; }
+.share-card.portrait.fmt-story.day-layout .day-mid { justify-content: space-evenly; }
+
+/* ---------- تابا گۆلکەران ---------- */
+.sc-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  background: #fff; border-radius: 16px; box-shadow: 0 8px 22px rgba(20,58,92,.10); border: 1px solid var(--line);
+}
+.scorers { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 1rem; }
+.scorers th {
+  background: var(--navy); color: #fff; font-weight: 800; padding: 12px 10px; text-align: center; white-space: nowrap;
+}
+.scorers td { padding: 10px; text-align: center; font-weight: 700; color: var(--text); border-top: 1px solid #edf2f7; white-space: nowrap; }
+.scorers tbody tr:nth-child(even) td { background: #f6f9fc; }
+.scorers .sc-player, .scorers .sc-team { text-align: right; }
+.scorers .sc-rank { width: 72px; }
+.sc-rk {
+  display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+  background: #e3edf5; color: var(--navy); font-weight: 900;
+}
+.sc-rk.r1 { background: linear-gradient(135deg, #a87a1e, #ffe9a3 50%, #c8962a); color: #2b1d00; }
+.sc-rk.r2 { background: linear-gradient(135deg, #8d99a6, #f1f4f7 50%, #a9b4bf); color: #1c2733; }
+.sc-rk.r3 { background: linear-gradient(135deg, #8a5a2b, #e3b07a 50%, #a8703a); color: #fff; }
+.sc-medal { margin-inline-start: 4px; font-size: 1.1rem; }
+.sc-name { font-weight: 900; color: var(--navy); unicode-bidi: isolate; }
+.sc-boot {
+  display: inline-block; margin-inline-start: 8px; font-size: .72rem; font-weight: 800; color: #7a5410;
+  background: #fff4d6; border: 1px solid #e8c25c; border-radius: 999px; padding: 0 10px; vertical-align: middle;
+}
+.sc-tw { display: flex; align-items: center; gap: 8px; }
+.sc-logo {
+  width: 34px; height: 34px; flex: 0 0 34px; border-radius: 50%; object-fit: contain; background: #fff; padding: 2px;
+  border: 2px solid var(--sky); box-shadow: 0 0 0 1.5px rgba(232,194,92,.55);
+}
+.sc-logo.ph { display: grid; place-items: center; padding: 0; background: var(--navy); color: #fff; font-size: .75rem; font-weight: 900; }
+.sc-tname { font-weight: 800; color: var(--navy); unicode-bidi: isolate; }
+.sc-out { font-size: .7rem; font-weight: 800; color: #5f7489; background: #eef2f6; border: 1px solid #d3dde7; border-radius: 999px; padding: 0 8px; }
+.scorers .sc-goals { font-size: 1.5rem; font-weight: 900; color: var(--blue); }
+.scorers tr.first td { background: #fff8e4 !important; }
+.scorers tr.first .sc-goals { color: #a87a1e; }
+/* مۆبایل: پلە و ناڤێ یاریزانی جێگیر دمینن */
+@media (max-width: 600px) {
+  .scorers { font-size: .9rem; }
+  .scorers .sc-rank, .scorers .sc-player { position: sticky; z-index: 1; background: #fff; }
+  .scorers .sc-rank { right: 0; width: 56px; min-width: 56px; }
+  .scorers .sc-player { right: 56px; box-shadow: -6px 0 8px -6px rgba(20,58,92,.25); }
+  .scorers thead .sc-rank, .scorers thead .sc-player { background: var(--navy); }
+  .scorers tbody tr:nth-child(even) .sc-rank, .scorers tbody tr:nth-child(even) .sc-player { background: #f6f9fc; }
+  .scorers tr.first .sc-rank, .scorers tr.first .sc-player { background: #fff8e4; }
+  .sc-boot { display: none; }
+}
+@media (min-width: 1600px) {
+  #scorers { max-width: 1400px; }
+  .scorers { font-size: 1.25rem; }
+  .scorers td { padding: 14px 12px; }
+  .sc-logo { width: 46px; height: 46px; flex-basis: 46px; }
+  .scorers .sc-goals { font-size: 2rem; }
+}
+
+/* کارتا گۆلکەرێ ئێکێ ل تابا ئەنجامان */
+.ts-card {
+  display: flex; align-items: center; justify-content: center; gap: 10px 20px; flex-wrap: wrap; margin: 0 0 22px;
+  padding: 10px 16px; border-radius: 14px; text-decoration: none; color: var(--navy);
+  background: linear-gradient(180deg, #fff8e4, #fff); border: 1.5px solid #e8c25c; box-shadow: 0 6px 16px rgba(168,122,30,.15);
+}
+.ts-label { font-weight: 900; color: #7a5410; }
+.ts-one { display: inline-flex; align-items: center; gap: 8px; }
+.ts-one b { unicode-bidi: isolate; }
+.ts-goals { font-weight: 900; color: #a87a1e; }
+
+/* وێنەیێ گۆلکەران (شیشە، وەکی خشتەیا تیمان) */
+.scorers-card .sc-wrap {
+  background: linear-gradient(160deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+  border: 2px solid rgba(76,198,238,.5); border-radius: 22px; box-shadow: 0 12px 30px rgba(0,0,0,.28); overflow: hidden;
+}
+.scorers-card .scorers { min-width: 0; font-size: 34px; }
+.scorers-card .scorers th { background: rgba(14,43,69,.75); font-size: 28px; padding: 20px 10px; }
+.scorers-card .scorers td { color: #fff; padding: 22px 12px; border-top-color: rgba(255,255,255,.10); background: transparent !important; }
+.scorers-card .scorers tbody tr:nth-child(even) td { background: rgba(255,255,255,.04) !important; }
+.scorers-card .scorers tr.first td { background: rgba(232,194,92,.18) !important; }
+.scorers-card .sc-name, .scorers-card .sc-tname { color: #fff; }
+.scorers-card .sc-rk { width: 64px; height: 64px; font-size: 30px; background: rgba(255,255,255,.12); color: #fff; }
+.scorers-card .sc-rk.r1 { background: linear-gradient(135deg, #a87a1e, #ffe9a3 50%, #c8962a); color: #2b1d00; }
+.scorers-card .sc-rk.r2 { background: linear-gradient(135deg, #8d99a6, #f1f4f7 50%, #a9b4bf); color: #1c2733; }
+.scorers-card .sc-rk.r3 { background: linear-gradient(135deg, #8a5a2b, #e3b07a 50%, #a8703a); color: #fff; }
+.scorers-card .sc-medal { font-size: 34px; }
+.scorers-card .sc-logo { width: 64px; height: 64px; flex-basis: 64px; padding: 4px; }
+.scorers-card .sc-goals { font-size: 52px; color: #9fdcf7; }
+.scorers-card tr.first .sc-goals { color: #f3d27a; }
+.scorers-card .sc-boot { font-size: 20px; padding: 2px 12px; background: rgba(232,194,92,.2); color: #ffe9a3; border-color: rgba(232,194,92,.7); }
+.scorers-card .sc-out { font-size: 18px; background: rgba(255,255,255,.1); color: #cfe9f7; border-color: rgba(207,233,247,.4); }
+/* وێنەیێ گۆلکەران: هەمی ستوون د پانیا وێنەی دا */
+.scorers-card .sc-wrap { overflow: visible; }
+.scorers-card .scorers { table-layout: auto; width: 100%; font-size: 30px; }
+.scorers-card .scorers th, .scorers-card .scorers td { padding-left: 8px; padding-right: 8px; }
+.scorers-card .scorers td { white-space: nowrap; }
+.scorers-card .sc-boot { display: block; margin: 6px 0 0; width: fit-content; font-size: 17px; }
+.scorers-card .sc-rank { width: 120px; }
+.scorers-card .sc-games { width: 90px; }
+.scorers-card .sc-goals { width: 110px; font-size: 48px; }
+.scorers-card .sc-logo { width: 56px; height: 56px; flex-basis: 56px; }
+
+/* ---------- وێنەیێ گۆلکەران: هەمی پانی، ڕێز و نڤیسینێن مەزن ---------- */
+.scorers-card.share-card.portrait { padding: 40px 54px 28px; }
+.scorers-card .share-logo { width: 120px; height: 120px; }
+.scorers-card .share-title { font-size: 44px; }
+.scorers-card .sb-main { font-size: 34px; }
+.scorers-card .share-body .sc-wrap { width: 100%; }
+.scorers-card .scorers { width: 100%; table-layout: fixed; font-size: 26px; }
+.scorers-card .scorers th { font-size: 26px; padding: 16px 8px; }
+.scorers-card .scorers th.sc-rank, .scorers-card .scorers td.sc-rank { width: 10%; }
+.scorers-card .scorers th.sc-player, .scorers-card .scorers td.sc-player { width: 32%; }
+.scorers-card .scorers th.sc-team, .scorers-card .scorers td.sc-team { width: 34%; }
+.scorers-card .scorers th.sc-games, .scorers-card .scorers td.sc-games { width: 10%; }
+.scorers-card .scorers th.sc-goals, .scorers-card .scorers td.sc-goals { width: 14%; }
+.scorers-card .scorers td { padding: 10px 8px; white-space: nowrap; overflow: hidden; }
+.scorers-card .sc-rk { width: 40px; height: 40px; font-size: 22px; background: #dbeaf5; color: #0e2b45; }
+.scorers-card .sc-medal { font-size: 24px; margin-inline-start: 2px; }
+.scorers-card .sc-name { font-size: 30px; font-weight: 900; }
+.scorers-card .sc-boot { display: block; margin: 4px 0 0; font-size: 15px; padding: 1px 10px; }
+.scorers-card .sc-tw { gap: 10px; }
+.scorers-card .sc-logo { width: 45px; height: 45px; flex: 0 0 45px; padding: 3px; border: 2px solid var(--accent); box-shadow: 0 0 0 2px rgba(232,194,92,.6); }
+.scorers-card .sc-tname { font-size: 24px; font-weight: 800; }
+.scorers-card .sc-games { font-size: 26px; }
+.scorers-card .scorers td.sc-goals, .scorers-card tr.first .sc-goals { font-size: 40px; font-weight: 900; color: #f3d27a; }
+.scorers-card .sc-out { font-size: 14px; }
+.scorers-card .share-foot { font-size: 24px; }
+.share-card.portrait.fmt-story.scorers-card .share-logo { width: 120px; height: 120px; }
+.scorers-card .share-title { white-space: nowrap; font-size: 42px; }
+.scorers-card .sc-tname { font-size: 27px; }
+.scorers-card .sc-logo { width: 48px; height: 48px; flex-basis: 48px; }
+
+/* ---------- خانێن سەرکەفتیان دەمێ تیم تێدا: سپی و ئاشکەرا وەکی خانێن تیمان ---------- */
+.bracket .bnode.filled {
+  background: linear-gradient(180deg, #ffffff, #e8f3fb); color: #0b2742;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 2px rgba(76,198,238,.35), 0 6px 16px rgba(0,0,0,.3);
+  backdrop-filter: none;
+}
+.bracket .bnode.filled .bn-text { font-weight: 900; color: #0b2742; }
+.bracket .bnode.filled img { border-color: var(--accent); }
+/* کێمەک مەزنتر (بێ کو جهـ بگوهۆڕیت): لوگۆ و نڤیسین */
+.bracket.double .bnode.filled { font-size: 28px; }
+.bracket.double .bnode.filled img { width: 52px; height: 52px; flex-basis: 52px; }
+.bracket .bnode.filled.lost { opacity: .5; }
+
+
+/* گۆلکەر: پێشکەفتنا قارەمانیێ ل نک ناڤونیشانی */
+.sc-progress { font-size: .8rem; font-weight: 800; color: var(--blue); background: #e3f3fb; border-radius: 999px; padding: 1px 12px; white-space: nowrap; }
+.sc-progress.done { color: #7a5410; background: #fff4d6; border: 1px solid #e8c25c; }
+.scorers-card .share-badge { flex-direction: column; gap: 4px; }
+.scorers-card .sb-sub { font-size: 24px; }
+
+/* ---------- وێنەیێن گۆلکەران و خشتەیا تیمان: سەری هەمی د ناڤەڕاستا وێنەی دا ---------- */
+.table-card .share-head { flex-direction: column; align-items: center; gap: 14px; }
+.table-card .share-titles { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+.table-card .share-logo { width: 130px; height: 130px; border-radius: 28px; }
+.table-card .share-title { white-space: nowrap; }
+.table-card .sup-pill { margin: 0; }
+.table-card.share-card.portrait .share-badge { margin: 24px auto 28px; }
+.share-card.portrait.fmt-story.scorers-card .share-logo { width: 130px; height: 130px; }
+
+/* ---------- تیروپشک — ئێک وێنەیێ ستۆری ---------- */
+.story-bracket .story-head { top: 150px; }
+.story-bracket .story-head .half-title { font-size: 38px; white-space: nowrap; }
+.story-bracket .bracket.story-board .bname { font-size: 30px; }
+.story-bracket .bracket.story-board .bslot .bnum { flex-basis: 50px; font-size: 28px; }
+.story-bracket .bracket.story-board .bslot .bname img { width: 50px; height: 50px; flex: 0 0 50px; padding: 4px; }
+.story-bracket .bracket.story-board .bslot.extra .bname img { width: 46px; height: 46px; flex: 0 0 46px; }
+.story-bracket .bracket.story-board .bnode:not(.champ) { font-size: 16px; }
+.story-bracket .story-lines { position: absolute; left: 0; top: 0; z-index: 1; }
+.story-bracket .story-lines path { fill: none; stroke: rgba(255,255,255,.75); stroke-width: 2; }
+.story-bracket .story-lines path.win { stroke: var(--accent); stroke-width: 3; }
+.story-bracket .story-final { z-index: 2; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 30px; font-weight: 900; }
+.story-bracket .story-final img { width: 56px; height: 56px; flex: 0 0 56px; }
+.story-bracket .story-final .bno { position: absolute; top: -12px; left: -12px; }
+.story-bracket .story-label { z-index: 2; transform: none; font-size: 22px; }
+.story-bracket .story-trophy { z-index: 2; width: 150px; height: 160px; }
+.story-bracket .story-final {
+  color: #2b1d00; border: 2px solid #ffe9a3; border-radius: 18px;
+  background: linear-gradient(115deg, #8a6417 0%, #c8962a 18%, #f3d27a 34%, #fff3c4 46%, #f3d27a 58%, #c8962a 78%, #a87a1e 100%);
+  box-shadow: 0 0 0 3px rgba(168,122,30,.45), 0 0 30px rgba(255,210,110,.6);
+}
+.story-bracket .story-final .bn-ph { opacity: .55; font-size: 26px; }
+.story-bracket .story-final .bno { background: #ffe9a3; border-color: #c8962a; color: #2b1d00; }
+.story-bracket .story-label { transform: translateX(-50%); }
+
+/* ---------- تیروپشک — ستۆری (هەردوو لا) ---------- */
+.story-bracket2 .story2-banner { gap: 8px; padding: 14px 24px; }
+.story-bracket2 .story2-banner .bw-title { font-size: 38px; white-space: nowrap; }
+.story-bracket2 .story2-banner .bw-text { font-size: 21px; }
+.story-bracket2 .story2-sup { position: absolute; z-index: 2; top: 352px; left: 50%; transform: translateX(-50%); margin: 0; font-size: 21px; }
+.bracket.story2-board .bname { font-size: 22px; padding-inline: 4px 6px; }
+.bracket.story2-board .bslot .bnum { flex-basis: 34px; font-size: 20px; }
+.bracket.story2-board .bslot .bname img { width: 38px; height: 38px; flex: 0 0 38px; padding: 3px; }
+.bracket.story2-board .bslot.extra .bname img { width: 34px; height: 34px; flex: 0 0 34px; }
+.bracket.story2-board .bnode:not(.champ) { font-size: 13px; padding: 0 4px; gap: 3px; }
+.bracket.story2-board .bnode:not(.champ) img { width: 22px; height: 22px; flex: 0 0 22px; padding: 1px; }
+.bracket.story2-board .bnode.champ { font-size: 26px; }
+.bracket.story2-board .bnode.champ img { width: 46px; height: 46px; flex: 0 0 46px; }
+.bracket.story2-board .bno { min-width: 22px; height: 22px; font-size: 12px; top: -10px; left: -10px; }
+.bracket.story2-board .b-label { font-size: 1.1rem; }
+.bracket.story2-board .b-trophy { width: 130px; height: 140px; }
+
+.bracket.story2-board .bname { font-size: 19px; padding-inline: 3px 4px; gap: 4px; }
+.bracket.story2-board .bslot .bnum { flex-basis: 28px; font-size: 18px; }
+.bracket.story2-board .bslot .bname img, .bracket.story2-board .bslot.extra .bname img { width: 32px; height: 32px; flex: 0 0 32px; padding: 2px; }
+.bracket.story2-board .bnode:not(.champ) { font-size: 12px; padding: 0 3px; }
+.bracket.story2-board .bnode:not(.champ) img { display: none; }
+
+/* ---------- ستۆریێن تیروپشکێ (3 وێنە) ---------- */
+.story-side .sb-head { position: absolute; z-index: 2; top: 186px; left: 40px; right: 40px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.story-side .sb-title {
+  font-size: 36px; font-weight: 900; white-space: nowrap;
+  background: linear-gradient(90deg, #c8962a, #ffe9a3, #c8962a); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.story-side .sb-pill { background: rgba(14,43,69,.6); color: #fff; border: 2px solid #e8c25c; border-radius: 999px; padding: 4px 26px; font-size: 28px; font-weight: 900; }
+.story-side .sup-pill { font-size: 20px; padding: 3px 18px; }
+.story-side .sb-lines { position: absolute; left: 0; top: 0; z-index: 1; }
+.story-side .sb-lines path { fill: none; stroke: rgba(255,255,255,.8); stroke-width: 3; }
+.story-side .sb-lines path.win { stroke: #e8c25c; stroke-width: 4; }
+.sb-slot {
+  position: absolute; z-index: 2; display: flex; align-items: center; gap: 10px; direction: ltr;
+  background: linear-gradient(180deg, #ffffff, #e8f3fb); border-radius: 18px; padding: 0 10px 0 0; overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,.3);
+}
+.sb-num { align-self: stretch; flex: 0 0 auto; order: 3; display: grid; place-items: center; width: 50px; color: #fff; font-weight: 900; font-size: 28px; background: linear-gradient(135deg, var(--blue), var(--sky)); }
+.sb-logo { order: 2; width: 68px; height: 68px; flex: 0 0 68px; border-radius: 50%; object-fit: contain; background: #fff; padding: 4px; border: 2px solid var(--accent); box-shadow: 0 0 0 2px rgba(232,194,92,.6); }
+.sb-logo.ph { display: grid; place-items: center; padding: 0; background: var(--navy); color: #fff; font-weight: 900; font-size: 24px; }
+.sb-name { order: 1; flex: 1 1 auto; min-width: 0; padding-left: 16px; font-size: 40px; font-weight: 900; color: #0b2742; white-space: nowrap; overflow: hidden; text-align: center; unicode-bidi: isolate; }
+.sb-slot.out { background: linear-gradient(180deg, #d3dbe3, #c3ccd6); opacity: .78; }
+.sb-slot.out .sb-name { color: #4a5a6b; text-decoration: line-through; text-decoration-color: rgba(180,35,24,.7); text-decoration-thickness: 3px; }
+.sb-slot.out .sb-logo { filter: grayscale(1); }
+.sb-slot.out .sb-num { background: #8a97a6; }
+.sb-out { order: 1; position: absolute; left: 10px; bottom: 6px; font-size: 16px; font-weight: 800; color: #fff; background: #d64545; border-radius: 999px; padding: 0 10px; }
+.sb-box {
+  position: absolute; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  border-radius: 16px; background: rgba(10,33,54,.9); border: 2px solid rgba(76,198,238,.7); padding: 6px 6px 8px; text-align: center;
+}
+.sb-box.filled { background: linear-gradient(180deg, #ffffff, #e8f3fb); border: 3px solid #e8c25c; box-shadow: 0 0 0 2px rgba(232,194,92,.35), 0 6px 16px rgba(0,0,0,.3); }
+.sb-box.out { opacity: .8; }
+.sb-wlogo { width: 40px; height: 40px; border-radius: 50%; object-fit: contain; background: #fff; border: 1.5px solid var(--accent); }
+.sb-wname { font-size: 30px; font-weight: 900; color: #0b2742; line-height: 1.05; max-width: 100%; overflow: hidden; unicode-bidi: isolate; word-break: break-word; }
+.sb-no { position: absolute; top: -16px; right: -14px; min-width: 32px; height: 32px; border-radius: 999px; display: grid; place-items: center; background: #fff; color: var(--navy); border: 2px solid var(--sky); font-size: 18px; font-weight: 900; padding: 0 6px; }
+.sb-score { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); white-space: nowrap; background: var(--navy); color: #fff; border: 1.5px solid #e8c25c; border-radius: 999px; padding: 0 10px; font-size: 18px; font-weight: 900; }
+.sb-box.semi { border-color: #e8c25c; }
+/* ستۆری 3 */
+.sb-cards { position: absolute; z-index: 2; top: 400px; bottom: 260px; left: 50px; right: 50px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: stretch; }
+.sb-card { background: linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.05)); border: 2px solid rgba(76,198,238,.6); border-radius: 26px; padding: 18px 20px 16px; box-shadow: 0 12px 30px rgba(0,0,0,.3); }
+.sb-card.final { border: 3px solid #e8c25c; background: linear-gradient(160deg, rgba(255,233,163,.22), rgba(255,255,255,.05)); }
+.sb-card-label { text-align: center; font-size: 26px; font-weight: 900; color: #ffe9a3; margin-bottom: 10px; }
+.sb-card-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; direction: rtl; }
+.sb-card-team { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.sb-card-team.out { opacity: .6; }
+.sb-card-logo { width: 110px; height: 110px; border-radius: 50%; object-fit: contain; background: #fff; padding: 6px; border: 3px solid var(--accent); box-shadow: 0 0 0 3px rgba(232,194,92,.55); }
+.sb-card-logo.ph { display: grid; place-items: center; padding: 0; background: rgba(255,255,255,.08); color: #cfe9f7; font-size: 40px; font-weight: 900; border-style: dashed; }
+.sb-card-name { color: #fff; font-size: 34px; font-weight: 900; text-align: center; line-height: 1.15; unicode-bidi: isolate; }
+.sb-card-mid { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.sb-card-vs { width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center; background: var(--blue-grad); color: #fff; font-size: 30px; font-weight: 900; }
+.sb-card.final .sb-card-vs { background: linear-gradient(135deg, #a87a1e, #f3d27a); color: #2b1d00; }
+.sb-card-score { font-size: 64px; font-weight: 900; color: #fff; }
+.sb-card-pens { font-size: 20px; color: #dff3ff; font-weight: 800; }
+.sb-card-when { text-align: center; margin-top: 10px; font-size: 22px; font-weight: 800; color: #9fdcf7; }
+.sb-cup { align-self: center; width: 150px; height: 160px; filter: drop-shadow(0 0 24px rgba(255,210,110,.6)); }
+.sb-champ { text-align: center; background: linear-gradient(135deg, #a87a1e, #ffe9a3 50%, #c8962a); border-radius: 22px; padding: 12px; }
+.sb-champ-t { font-size: 28px; font-weight: 900; color: #2b1d00; }
+.sb-champ-n { font-size: 46px; font-weight: 900; color: #2b1d00; unicode-bidi: isolate; }
+
+.sb-wlogo { width: 36px; height: 36px; }
+.sb-wname { white-space: normal; text-align: center; }
+
+.sb-wname { word-break: normal; overflow-wrap: normal; }
+.sb-box { justify-content: flex-start; padding-top: 10px; }
+
+/* ---------- تیروپشک — ستۆری (9:16)، ئێک وێنە ب قەبارێن زیرەک ---------- */
+.story-one .so-glow {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 760px; z-index: 0; pointer-events: none;
+  background: radial-gradient(ellipse 75% 55% at 50% 100%, rgba(120,230,170,.22), transparent 70%),
+              linear-gradient(0deg, rgba(31,124,60,.28), transparent 60%);
+}
+.story-one .so-banner { gap: 8px; padding: 12px 24px; z-index: 2; }
+.story-one .so-banner .bw-title { font-size: 36px; white-space: nowrap; }
+.story-one .so-banner .bw-text { font-size: 20px; }
+.story-one .so-sup { position: absolute; z-index: 2; top: 322px; left: 50%; transform: translateX(-50%); margin: 0; font-size: 20px; padding: 3px 18px; }
+.so-lines { position: absolute; left: 0; top: 0; z-index: 1; }
+.so-lines path { fill: none; stroke: rgba(255,255,255,.8); stroke-width: 2.5; }
+.so-lines path.win { stroke: #e8c25c; stroke-width: 3.5; }
+.so-slot, .so-box { position: absolute; z-index: 2; display: flex; align-items: center; white-space: nowrap; direction: ltr; }
+.so-slot { gap: 8px; height: 58px; border-radius: 14px; overflow: hidden; padding-right: 8px;
+  background: linear-gradient(180deg, #ffffff, #e8f3fb); box-shadow: 0 5px 14px rgba(0,0,0,.3); }
+.so-slot.r { flex-direction: row-reverse; padding: 0 0 0 8px; }
+.so-num { align-self: stretch; flex: 0 0 34px; display: grid; place-items: center; color: #fff; font-weight: 900; font-size: 22px;
+  background: linear-gradient(135deg, var(--blue), var(--sky)); }
+.so-logo { width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; object-fit: contain; background: #fff; padding: 3px;
+  border: 2px solid var(--accent); box-shadow: 0 0 0 2px rgba(232,194,92,.55); }
+.so-logo.ph { display: grid; place-items: center; padding: 0; background: var(--navy); color: #fff; font-size: 18px; font-weight: 900; }
+.so-name { flex: 1 1 auto; min-width: 0; overflow: hidden; font-size: 30px; font-weight: 900; color: #0b2742; text-align: center; unicode-bidi: isolate; padding: 0 4px; }
+.so-slot.up { height: 80px; border: 3px solid #e8c25c; box-shadow: 0 0 0 3px rgba(232,194,92,.35), 0 0 26px rgba(255,210,110,.6); }
+.so-slot.up .so-name { font-size: 36px; }
+.so-slot.up .so-logo { width: 58px; height: 58px; flex-basis: 58px; }
+.so-slot.up .so-num { flex-basis: 40px; font-size: 26px; background: linear-gradient(135deg, #a87a1e, #e8c25c); color: #2b1d00; }
+.so-slot.out { height: 50px; opacity: .72; background: linear-gradient(180deg, #d3dbe3, #c3ccd6); }
+.so-slot.out .so-name { font-size: 24px; color: #3f4f60; text-decoration: line-through; text-decoration-color: rgba(180,35,24,.7); text-decoration-thickness: 2px; }
+.so-slot.out .so-logo { width: 36px; height: 36px; flex-basis: 36px; filter: grayscale(1); }
+.so-slot.out .so-num { background: #8a97a6; }
+.so-out { position: absolute; bottom: 1px; font-size: 12px; font-weight: 800; color: #fff; background: #d64545; border-radius: 999px; padding: 0 7px; line-height: 1.4; }
+.so-slot.l .so-out, .so-box.l .so-out { right: 6px; }
+.so-slot.r .so-out, .so-box.r .so-out { left: 6px; }
+.so-box { gap: 6px; height: 48px; padding: 0 10px; border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff, #e8f3fb); border: 2px solid var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+.so-box.r { flex-direction: row-reverse; }
+.so-box .so-logo { width: 34px; height: 34px; flex-basis: 34px; padding: 2px; }
+.so-box .so-name { font-size: 26px; padding: 0; overflow: visible; }
+.so-box.up { height: 64px; border: 3px solid #e8c25c; box-shadow: 0 0 0 3px rgba(232,194,92,.35), 0 0 22px rgba(255,210,110,.55); }
+.so-box.up .so-name { font-size: 30px; }
+.so-box.up .so-logo { width: 44px; height: 44px; flex-basis: 44px; }
+.so-box.out { opacity: .72; background: linear-gradient(180deg, #d3dbe3, #c3ccd6); border-color: #8a97a6; }
+.so-box.out .so-name { font-size: 24px; color: #3f4f60; text-decoration: line-through; text-decoration-color: rgba(180,35,24,.7); text-decoration-thickness: 2px; }
+.so-box.out .so-logo { filter: grayscale(1); }
+.so-box.out .so-out { bottom: -8px; }
+.so-box.empty { width: 40px; height: 40px; padding: 0; background: rgba(10,33,54,.92); border: 2px solid rgba(76,198,238,.7); }
+.so-box.empty.match-up { width: 46px; height: 46px; border: 2px dashed #e8c25c; }
+.so-no { position: absolute; top: -12px; min-width: 26px; height: 26px; border-radius: 999px; display: grid; place-items: center;
+  background: #fff; color: var(--navy); border: 2px solid var(--sky); font-size: 14px; font-weight: 900; padding: 0 5px; }
+.so-box.l .so-no { right: -12px; }
+.so-box.r .so-no { left: -12px; }
+.so-score { position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff;
+  border: 1.5px solid #e8c25c; border-radius: 999px; padding: 0 8px; font-size: 15px; font-weight: 900; white-space: nowrap; line-height: 1.5; }
+.so-pill { position: absolute; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 2px; direction: rtl; white-space: nowrap;
+  background: rgba(14,43,69,.94); border: 2px solid #e8c25c; border-radius: 14px; padding: 4px 12px; color: #fff; font-size: 17px; font-weight: 800;
+  box-shadow: 0 6px 16px rgba(0,0,0,.35); }
+.so-pill .so-next { color: #ffe9a3; font-weight: 900; font-size: 18px; }
+.so-pill.next { border-width: 3px; box-shadow: 0 0 0 3px rgba(232,194,92,.3), 0 0 22px rgba(255,210,110,.55); }
+.so-final { position: absolute; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 10px; width: 250px; height: 78px;
+  border-radius: 18px; color: #2b1d00; font-size: 28px; font-weight: 900; border: 2px solid #ffe9a3;
+  background: linear-gradient(115deg, #8a6417 0%, #c8962a 18%, #f3d27a 34%, #fff3c4 46%, #f3d27a 58%, #c8962a 78%, #a87a1e 100%);
+  box-shadow: 0 0 0 3px rgba(168,122,30,.45), 0 0 30px rgba(255,210,110,.6); }
+.so-final img { width: 50px; height: 50px; border-radius: 50%; object-fit: contain; background: #fff; padding: 3px; }
+.so-final .so-fph { opacity: .6; font-size: 26px; }
+.so-final .so-fname { unicode-bidi: isolate; }
+.so-final .so-no { left: -12px; background: #ffe9a3; border-color: #c8962a; color: #2b1d00; }
+.so-flabel { position: absolute; z-index: 2; background: #fff; color: var(--navy); font-weight: 900; font-size: 20px; padding: 2px 28px;
+  border-bottom: 4px solid var(--accent); clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); }
+.so-trophy { position: absolute; z-index: 2; width: 104px; height: 124px; filter: drop-shadow(0 0 22px rgba(255,210,110,.6)); }
+
+.so-box.empty.match-up { width: auto; height: auto; min-width: 46px; padding: 6px 12px; flex-direction: column; gap: 0; direction: rtl;
+  background: rgba(14,43,69,.95); border: 2px dashed #e8c25c; color: #fff; line-height: 1.25; }
+.so-box.match-up .so-mno { font-size: 20px; font-weight: 900; color: #ffe9a3; }
+.so-box.match-up .so-mwhen, .so-box.match-up .so-mtime { font-size: 16px; font-weight: 800; color: #dff3ff; }
+.so-box.match-up .so-next { font-size: 15px; font-weight: 900; color: #2b1d00; background: #e8c25c; border-radius: 999px; padding: 0 8px; margin-bottom: 3px; }
+.so-box.match-up:has(.so-next) { border: 3px solid #e8c25c; box-shadow: 0 0 0 3px rgba(232,194,92,.3), 0 0 22px rgba(255,210,110,.55); }
+
+.so-box { height: 46px; }
+.so-box.up { height: 56px; }
+.so-box.up .so-logo { width: 40px; height: 40px; flex-basis: 40px; }
+.so-score { bottom: -9px; font-size: 14px; line-height: 1.3; }
+.so-slot.up { height: 76px; }
+
+/* ---------- تابا «لیستا یاریزانان» ---------- */
+#sheets { max-width: 1100px; }
+.sheet-hint { text-align: center; color: var(--muted); font-weight: 700; margin: -10px 0 18px; }
+.sp-group { margin-bottom: 16px; }
+.sp-round { display: inline-block; margin-bottom: 8px; padding: 2px 16px; border-radius: 999px; background: var(--blue-grad); color: #fff; font-weight: 900; font-size: .9rem; }
+.sp-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.sp-btn {
+  display: flex; flex-direction: column; gap: 4px; padding: 8px 10px; border-radius: 14px; text-decoration: none;
+  background: #fff; border: 1.5px solid var(--line); border-top: 4px solid var(--navy); color: var(--navy);
+  box-shadow: 0 4px 12px rgba(20,58,92,.08); transition: transform .15s, box-shadow .15s;
+}
+.sp-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(20,58,92,.16); }
+.sp-btn.active { border-color: #e8c25c; border-top-color: #c8962a; box-shadow: 0 0 0 3px rgba(232,194,92,.35); background: #fffaf0; }
+.sp-btn.done { border-top-color: #1f9d55; }
+.sp-btn.final { background: linear-gradient(180deg, #fff8e4, #fff); border-top-color: #c8962a; }
+.sp-no { font-weight: 900; font-size: .85rem; color: var(--blue); }
+.sp-teams { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.sp-team { flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 6px; }
+.sp-team:last-child { flex-direction: row-reverse; text-align: left; }
+.sp-logo { width: 28px; height: 28px; flex: 0 0 28px; border-radius: 50%; object-fit: contain; background: #fff; border: 1.5px solid var(--sky); }
+.sp-logo.ph { display: grid; place-items: center; background: #eef2f6; color: var(--muted); font-weight: 900; font-size: .8rem; border-style: dashed; }
+.sp-name { font-weight: 800; font-size: .85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; unicode-bidi: isolate; }
+.sp-vs { flex: 0 0 auto; font-size: .7rem; font-weight: 900; color: #fff; background: var(--blue); border-radius: 999px; padding: 0 6px; }
+.sp-when { font-size: .75rem; font-weight: 700; color: var(--muted); }
+.sheet-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin: 22px 0 12px; }
+.sheet-bar .sub-title { margin: 0; flex: 1 1 auto; }
+.sheet-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.sheet-actions .shot-btn { font-size: .9rem; padding: 4px 14px; }
+#sheetView { position: relative; width: 100%; max-width: 794px; margin: 0 auto 30px; }
+#sheetView .ms-page { position: absolute; top: 0; right: 0; transform-origin: top right; box-shadow: 0 14px 40px rgba(14,43,69,.35); }
+#printArea { display: none; }
+
+/* فۆڕما A4 (794×1123 px = 210×297 mm) */
+.ms-page {
+  width: 794px; height: 1123px; overflow: hidden; direction: rtl; color: #fff; position: relative;
+  font-family: "Rabar", "Vazirmatn", "Noto Sans Arabic", Tahoma, sans-serif;
+  background: radial-gradient(ellipse 70% 30% at 50% 0%, rgba(76,198,238,.22), transparent 70%),
+              linear-gradient(170deg, #1d4f7c 0%, #143a5c 45%, #0e2b45 100%);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.ms-inner {
+  position: absolute; inset: 9px; border: 1.5px solid rgba(232,194,92,.75); border-radius: 18px;
+  padding: 14px 20px 10px; display: flex; flex-direction: column;
+}
+.ms-head { display: flex; flex-direction: column; align-items: center; gap: 7px; }
+.ms-logo { width: 60px; height: 60px; border-radius: 12px; object-fit: cover; border: 2px solid var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+.ms-title { font-size: 22px; font-weight: 900; line-height: 1.3; white-space: nowrap; color: #f3c74f;
+  background: linear-gradient(90deg, #e2b450, #ffe08a, #e2b450); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.ms-sup { font-size: 12px; font-weight: 800; padding: 3px 16px; border-radius: 999px; background: rgba(255,255,255,.10); border: 1px solid rgba(232,194,92,.75); }
+.ms-mpill { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 900; color: #ffe08a; padding: 5px 24px; border-radius: 999px;
+  background: rgba(14,43,69,.6); border: 1.5px solid #e8c25c; }
+.ms-mpill .ms-dia { font-size: 12px; color: #e8c25c; }
+.ms-page.final .ms-mpill { background: linear-gradient(115deg, #a87a1e, #f3d27a 45%, #fff3c4 55%, #c8962a); color: #2b1d00; border-color: #ffe9a3; box-shadow: 0 0 18px rgba(255,210,110,.5); }
+.ms-page.final .ms-mpill .ms-dia { color: #2b1d00; }
+.ms-when { font-size: 12px; font-weight: 800; color: #dbeefa; }
+.ms-when b { color: #f3c74f; }
+.ms-vs {
+  margin: 12px 0 10px; height: 102px; padding: 0 22px; border-radius: 16px; display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.05)); border: 1.5px solid rgba(76,198,238,.6);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.15);
+}
+.ms-page.final .ms-vs { border-color: rgba(232,194,92,.8); background: linear-gradient(160deg, rgba(255,233,163,.16), rgba(255,255,255,.05)); }
+.ms-side { flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 14px; position: relative; }
+.ms-side:last-child { flex-direction: row-reverse; }
+.ms-tlogo { width: 78px; height: 78px; flex: 0 0 78px; border-radius: 50%; object-fit: contain; background: #fff; padding: 4px;
+  border: 3px solid var(--sky); box-shadow: 0 0 0 3px rgba(232,194,92,.7); }
+.ms-tlogo.ph { display: grid; place-items: center; padding: 0; background: transparent; border: 2px dashed rgba(207,233,247,.75); box-shadow: none; color: #fff; font-size: 30px; font-weight: 900; }
+.ms-tname { font-size: 24px; font-weight: 900; white-space: nowrap; unicode-bidi: isolate; overflow: hidden; }
+.ms-side.tbd .ms-tname { font-size: 18px; color: #dbeefa; }
+.ms-writeline { position: absolute; bottom: -12px; right: 0; left: 0; border-bottom: 1.5px dashed rgba(207,233,247,.55); }
+.ms-vsc { flex: 0 0 auto; width: 66px; height: 66px; border-radius: 50%; display: grid; place-items: center; margin: 0 14px;
+  background: var(--blue-grad); color: #fff; font-size: 20px; font-weight: 900; border: 3px solid #e8c25c; box-shadow: 0 6px 16px rgba(0,0,0,.35); }
+.ms-divider { display: flex; align-items: center; gap: 12px; margin: 2px 0 8px; font-size: 15px; font-weight: 900; color: #f3c74f; }
+.ms-divider::before, .ms-divider::after { content: ""; flex: 1; height: 1.5px; }
+.ms-divider::before { background: linear-gradient(90deg, transparent, #e2b450); }
+.ms-divider::after { background: linear-gradient(90deg, #e2b450, transparent); }
+.ms-two { display: flex; gap: 22px; margin-bottom: 12px; }
+.ms-table { flex: 1 1 0; border-collapse: separate; border-spacing: 0; border-radius: 10px; overflow: hidden; border: 1.5px solid rgba(76,198,238,.75); table-layout: fixed; }
+.ms-table th { background: linear-gradient(180deg, #2a8fd0, #1f6fa8); color: #fff; font-size: 11px; font-weight: 900; height: 27px; padding: 0 8px; text-align: right; border-bottom: 2px solid #e8c25c; white-space: nowrap; }
+.ms-table td { background: #e8f2fb; color: #0b2742; font-size: 12px; font-weight: 800; border-top: 1px solid #b9d3e8; border-left: 1px solid #b9d3e8; padding: 0 8px; white-space: nowrap; overflow: hidden; }
+.ms-table tbody tr:nth-child(even) td { background: #dce9f6; }
+.ms-table .c-no { width: 28px; text-align: center; padding: 0; }
+.ms-table td.c-no { background: #cfe0f0 !important; font-weight: 900; }
+.ms-table .c-shirt { width: 66px; text-align: center; }
+.ms-table.players td { height: 29px; }
+.ms-table.cards td { height: 25px; }
+.ms-table .c-team { width: 78px; text-align: center; }
+.ms-table .c-min { width: 48px; text-align: center; }
+.ms-gold { color: #ffe08a; unicode-bidi: isolate; }
+.ms-chip { display: inline-block; width: 10px; height: 13px; border-radius: 2px; vertical-align: middle; }
+.ms-chip.yellow { background: #f5c518; }
+.ms-chip.red { background: #e03131; }
+.ms-result {
+  margin-top: 2px; height: 50px; padding: 0 16px; border-radius: 12px; display: flex; align-items: center; gap: 10px;
+  background: rgba(14,43,69,.55); border: 1.5px solid #e8c25c; font-size: 13px; font-weight: 900;
+}
+.ms-rlabel { color: #f3c74f; font-size: 14px; }
+.ms-plabel { color: #dbeefa; margin-right: 8px; }
+.ms-box { display: grid; place-items: center; width: 34px; height: 30px; border-radius: 7px; background: #e8f2fb; border: 1.5px solid var(--sky); color: #0b2742; font-size: 16px; font-weight: 900; }
+.ms-box.big { width: 44px; height: 34px; font-size: 18px; }
+.ms-dash { color: #fff; font-size: 16px; }
+.ms-winner { flex: 1 1 auto; min-width: 90px; height: 22px; border-bottom: 1.5px dashed rgba(207,233,247,.6); color: #ffe08a; font-size: 15px; font-weight: 900; unicode-bidi: isolate; white-space: nowrap; overflow: hidden; }
+.ms-signs { display: flex; gap: 30px; margin-top: 18px; }
+.ms-sign { flex: 1 1 0; display: flex; align-items: flex-end; gap: 8px; font-size: 12px; font-weight: 800; color: #dbeefa; }
+.ms-sline { flex: 1 1 auto; border-bottom: 1.5px dashed rgba(207,233,247,.55); height: 16px; }
+.ms-foot { margin-top: auto; text-align: center; font-size: 11px; font-weight: 800; color: #b9d7ea; }
+.ms-foot b { color: #f3c74f; }
+.ms-fdia { color: #e8c25c; font-size: 10px; margin-bottom: 2px; }
+
+/* چاپ: تنێ فۆڕم، هەر فۆڕمەک ئێک لاپەڕێ A4 */
+@page { size: A4; margin: 0; }
+@media print {
+  body.printing-sheets > *:not(#printArea) { display: none !important; }
+  body.printing-sheets { background: #fff; margin: 0; }
+  body.printing-sheets #printArea { display: block !important; }
+  #printArea .ms-page { width: 210mm; height: 297mm; page-break-after: always; break-after: page; }
+  #printArea .ms-page:last-child { page-break-after: auto; break-after: auto; }
+  #printArea .ms-page .ms-inner { inset: 2.4mm; }
+}
+.ms-side:last-child { flex-direction: row; }
+.ms-table td.c-name { text-align: right; }
+@media print {
+  .ms-title { background: none !important; -webkit-text-fill-color: #f3c74f !important; color: #f3c74f !important; }
+}
+
+/* ---------- VS د فۆڕمێ دا: ب تەمامی د ناڤەڕاستێ دا و وەکهەڤ ---------- */
+.ms-vs { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; padding: 16px 24px; }
+.ms-side, .ms-side:last-child { width: 100%; min-width: 0; display: flex; align-items: center; gap: 16px; }
+.ms-side:first-child { flex-direction: row; }           /* لایێ ڕاستێ: لوگۆ ل دەرڤە (ڕاست)، ناڤ بەرەف VS */
+.ms-side:last-child { flex-direction: row-reverse; }    /* لایێ چەپێ: لوگۆ ل دەرڤە (چەپ)، ناڤ بەرەف VS */
+.ms-tname { flex: 1 1 auto; min-width: 0; text-align: center; white-space: nowrap; overflow: hidden; }
+.ms-vsc { margin: 0; }
+/* هەلبژارتنا یاریێ: هەمان شێوە */
+.sp-teams { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; }
+.sp-team, .sp-team:last-child { min-width: 0; display: flex; align-items: center; gap: 8px; text-align: center; }
+.sp-team:first-child { flex-direction: row; }
+.sp-team:last-child { flex-direction: row-reverse; }
+.sp-team .sp-name { flex: 1 1 auto; text-align: center; }
+.sp-btn.active { outline: 3px solid #e8c25c; outline-offset: 0; }
+.sp-btn.active .sp-no::after { content: "  ◀ ڤەکری"; color: #a87a1e; }
+
+/* ---------- VS: لوگۆ د ناڤەڕاستا بانێ دا، و خانێن ئەنجامێ ل نک VS ---------- */
+.ms-vs { grid-template-columns: 1fr auto auto auto 1fr; gap: 14px; height: auto; min-height: 112px; padding: 14px 22px; }
+.ms-side, .ms-side:last-child { height: 84px; align-self: center; }
+.ms-side .ms-tlogo { width: 76px; height: 76px; flex: 0 0 76px; align-self: center; }
+.ms-side:last-child { flex-direction: row-reverse; }
+.ms-side.tbd .ms-writeline { bottom: -6px; }
+.ms-score {
+  width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center;
+  background: #fff; color: #0b2742; font-size: 30px; font-weight: 900;
+  border: 2px solid var(--sky); box-shadow: 0 0 0 2px rgba(232,194,92,.6), inset 0 2px 6px rgba(20,58,92,.15);
+}
+.ms-page.final .ms-score { border-color: #e8c25c; }
+
+#sheetView { overflow: hidden; }
+
+/* فۆنتێ Rabar ل سەر هەمی ماڵپەری (دوگمە و خانە ژی) */
+button, input, select, textarea, table, th, td { font-family: "Rabar", "Vazirmatn", "Noto Sans Arabic", Tahoma, sans-serif; }

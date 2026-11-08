@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a6417"/><stop offset=".5" stop-color="#ffe9a3"/><stop offset="1" stop-color="#a87a1e"/></linearGradient>
+<linearGradient id="grn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22a35a"/><stop offset="1" stop-color="#0a3a20"/></linearGradient>
+</defs>
+<path d="M256 18 L452 80 V246 C452 372 362 454 256 496 C150 454 60 372 60 246 V80 Z" fill="url(#gold)"/>
+<path d="M256 44 L428 98 V246 C428 358 348 430 256 468 C164 430 84 358 84 246 V98 Z" fill="url(#grn)"/>
+<path d="M256 44 L428 98 V246 C428 358 348 430 256 468 Z" fill="#000" opacity=".12"/>
+<g fill="url(#gold)"><polygon points="196.0,108.0 200.9,121.2 215.0,121.8 204.0,130.6 207.8,144.2 196.0,136.4 184.2,144.2 188.0,130.6 177.0,121.8 191.1,121.2"/><polygon points="256.0,90.0 262.4,107.2 280.7,108.0 266.4,119.4 271.3,137.0 256.0,126.9 240.7,137.0 245.6,119.4 231.3,108.0 249.6,107.2"/><polygon points="316.0,108.0 320.9,121.2 335.0,121.8 324.0,130.6 327.8,144.2 316.0,136.4 304.2,144.2 308.0,130.6 297.0,121.8 311.1,121.2"/></g>
+<text x="256" y="310" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="200" fill="url(#gold)" stroke="#5a3e08" stroke-width="3">P</text>
+<path d="M28 334 H484 L460 376 L484 418 H28 L52 376 Z" fill="#0a3a20" stroke="url(#gold)" stroke-width="7"/>
+<text x="256" y="395" text-anchor="middle" font-family="'Arial Black', Arial, sans-serif" font-weight="900" font-size="52" letter-spacing="5" fill="#ffe9a3">PESHAWA</text>
+</svg>

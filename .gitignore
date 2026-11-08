@@ -1,0 +1,6 @@
+_backup/
+_reference/
+.claude/
+.vscode/
+__pycache__/
+*.crdownload

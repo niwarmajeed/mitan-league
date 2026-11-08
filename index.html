@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ku" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>قارەمانیا تەپا پێ یا پەیمانگەها میتان</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=81">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-band" aria-hidden="true"><span class="stripe s1"></span><span class="stripe s2"></span></div>
+
+    <div class="brand" dir="ltr">
+      <img id="instituteLogo" class="inst-logo" alt="MITAN" hidden>
+      <div class="brand-text">
+        <strong id="brand"></strong>
+        <span id="brandSub"></span>
+      </div>
+    </div>
+
+    <div class="hero-body">
+
+    <p id="institute" class="institute"></p>
+
+    <svg class="trophy" viewBox="0 0 120 130" aria-hidden="true">
+      <defs>
+        <linearGradient id="g" x1="0" x2="1">
+          <stop offset="0" stop-color="#8a6417"/>
+          <stop offset=".45" stop-color="#ffe9a3"/>
+          <stop offset="1" stop-color="#a87a1e"/>
+        </linearGradient>
+      </defs>
+      <path d="M30 10h60v28c0 22-14 38-30 38S30 60 30 38z" fill="url(#g)"/>
+      <path d="M30 18H14c0 20 8 30 20 32M90 18h16c0 20-8 30-20 32" fill="none" stroke="url(#g)" stroke-width="6"/>
+      <rect x="54" y="74" width="12" height="20" fill="url(#g)"/>
+      <rect x="38" y="94" width="44" height="10" rx="3" fill="url(#g)"/>
+      <rect x="30" y="104" width="60" height="18" rx="3" fill="#143a5c"/>
+      <rect x="30" y="104" width="60" height="18" rx="3" fill="none" stroke="url(#g)" stroke-width="2"/>
+      <path d="M48 36l6 6 6-12 6 12 6-6-3 14H51z" fill="#7a5410" opacity=".55"/>
+    </svg>
+
+    <h1 id="title"></h1>
+    <p id="subtitle" class="subtitle"></p>
+
+    <div class="supervisor">
+      <span id="supervisorLabel"></span>
+      <strong id="supervisor"></strong>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b id="teamCount">0</b><span>تیم</span></div>
+      <div class="stat"><b id="matchCount">0</b><span>یاری</span></div>
+      <div class="stat"><b id="dayCount">0</b><span>ڕۆژ</span></div>
+    </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <a href="#games" data-tab="games">خشتەیێ یاریان</a>
+    <a href="#draw" data-tab="draw">تیروپشک</a>
+    <a href="#results" data-tab="results">ئەنجام</a>
+    <a href="#scorers" data-tab="scorers">⚽ گۆلکەر</a>
+    <a href="#sheets" data-tab="sheets">📋 لیستا یاریزانان</a>
+  </nav>
+
+  <section class="draw" id="draw" hidden>
+    <h2 class="section-title"><span>تیروپشکا قارەمانیێ</span></h2>
+    <div id="champDraw" hidden></div>
+    <p class="draw-count">ژمارا تیمان: <b id="drawCount">0</b> تیم</p>
+    <div class="res-warn" id="drawWarn" hidden></div>
+    <div class="draw-helper" id="drawHelper" hidden>
+      <div class="dh-head"><span class="dh-title">تیمێن مایین</span><span class="dh-count" id="dhCount"></span></div>
+      <div class="dh-list" id="dhList"></div>
+    </div>
+    <div class="welcome-card" id="welcomeCard" hidden>
+      <div class="bw-title" id="wcTitle"></div>
+      <div class="bw-divider"><span></span></div>
+      <div class="bw-text" id="wcText"></div>
+    </div>
+    <div class="bracket-frame" id="bracketFrame">
+      <div class="welcome-overlay" id="welcomeOverlay" hidden>
+        <div class="wo-card">
+          <img class="wo-logo" id="woLogo" alt="MITAN" hidden>
+          <div class="bw-title" id="woTitle"></div>
+          <div class="bw-divider"><span></span></div>
+          <div class="bw-text" id="woText"></div>
+          <button type="button" class="wo-close" id="woClose">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            داخستن
+          </button>
+        </div>
+      </div>
+      <div class="waves" aria-hidden="true"><i class="w1"></i><i class="w2"></i><i class="w3"></i></div>
+      <img id="drawLogo" class="draw-logo" alt="MITAN" hidden>
+      <div class="dh-full" id="dhFull" hidden></div>
+      <div class="tool-bar">
+        <button type="button" class="full-btn music-btn" id="musicBtn" title="موزیک">
+          <svg class="ic-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <span id="musicLabel">موزیک</span>
+        </button>
+        <div class="vol-ctl" id="volCtl">
+          <button type="button" class="vol-btn" id="volBtn" title="بێدەنگ بکە">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/>
+              <path class="w1" d="M16 9.5a3.5 3.5 0 0 1 0 5"/>
+              <path class="w2" d="M18.5 7a7 7 0 0 1 0 10"/>
+              <path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/>
+            </svg>
+          </button>
+          <input type="range" id="volRange" min="0" max="100" value="80" dir="ltr" aria-label="بلندیا دەنگی">
+          <span class="vol-val" id="volVal">80</span>
+        </div>
+        <button type="button" class="full-btn shot-tool" id="shotBtn" title="دابەزاندنا وێنەیێ تیروپشکێ">
+          <span aria-hidden="true">📷</span>
+          <span>وێنە</span>
+        </button>
+        <button type="button" class="full-btn" id="fullBtn" title="شاشا تەمام">
+          <svg class="ic-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+          <svg class="ic-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
+          <span id="fullLabel">شاشا تەمام</span>
+        </button>
+      </div>
+      <div class="bracket-wrap" id="bracketWrap">
+        <div class="bracket-sizer"><div class="bracket" id="bracket"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <main id="games">
+    <h2 class="section-title"><span>خشتەیێ یاریان</span></h2>
+    <div id="champGames" hidden></div>
+    <div id="byeGames" hidden></div>
+    <div id="schedule"></div>
+  </main>
+
+  <main id="results" hidden>
+    <h2 class="section-title"><span>ئەنجام</span></h2>
+
+    <nav class="subtabs">
+      <a href="#results" data-view="matches">⚽ ئەنجامێن یاریان</a>
+      <a href="#results-table" data-view="table">📊 خشتەیا تیمان</a>
+    </nav>
+
+    <div class="res-view" id="resMatches">
+    <div id="champResults" hidden></div>
+    <div class="res-warn" id="resWarn" hidden></div>
+    <div id="byeResults" hidden></div>
+    <div id="topScorerCard" hidden></div>
+
+    <div class="stats res-stats">
+      <div class="stat"><b id="resPlayed">0</b><span>یاریێن کرین</span></div>
+      <div class="stat"><b id="resGoals">0</b><span>هەمی گۆل</span></div>
+      <div class="stat"><b id="resAvg">0</b><span>تێکڕایا گۆلان د یاریەکێ دا</span></div>
+    </div>
+
+    <h3 class="sub-title">ئەنجامێن یاریان</h3>
+    <p class="res-empty" id="resEmpty" hidden>هێشتا چ یاری نەهاتینە ئەنجامدان</p>
+    <div id="resList"></div>
+    </div>
+
+    <div class="res-view" id="resTable" hidden>
+    <h3 class="sub-title">خشتەیا تیمان <button type="button" class="shot-btn" id="shotTable" title="دابەزاندنا وێنەیێ خشتەیێ">📷 وێنە</button></h3>
+    <div class="table-wrap">
+      <table class="standings">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th class="col-team">تیم</th>
+            <th title="یاری">ی</th>
+            <th title="بردن">ب</th>
+            <th title="شکەست">ش</th>
+            <th title="گۆلێن هاڤێتین">گ+</th>
+            <th title="گۆلێن لێ هاتین">گ−</th>
+            <th>جیاوازی</th>
+            <th>خال</th>
+            <th class="col-status">ڕەوش</th>
+          </tr>
+        </thead>
+        <tbody id="standingsBody"></tbody>
+      </table>
+    </div>
+    <p class="table-note">سەرکەفتن = 3 خال (ب گۆلان یان پێناڵتیان) · شکەست = 0 خال و تیم دەردکەڤیت</p>
+    </div>
+  </main>
+
+  <main id="scorers" hidden>
+    <h2 class="section-title"><span>⚽ گۆلکەر</span></h2>
+    <div class="res-warn" id="scWarn" hidden></div>
+    <h3 class="sub-title"><span id="scTitle">گۆلکەرێن قارەمانیێ تا نوکە</span> <span class="sc-progress" id="scProgress"></span> <button type="button" class="shot-btn" id="shotScorers" title="دابەزاندنا وێنەیێ گۆلکەران" hidden>📷 وێنە</button></h3>
+    <p class="res-empty" id="scEmpty">هێشتا چ گۆل نەهاتینە تۆمارکرن</p>
+    <div id="scTable"></div>
+    <p class="table-note">یاریزانێن هەمان ژمارا گۆلان هەنە، هەمان پلە وەردگرن · تنێ گۆلێن د یاریێ دا دهێنە هژمارتن، نە گۆلێن پێناڵتیێن دوماهیا یاریێ.</p>
+  </main>
+
+  <main id="sheets" hidden>
+    <h2 class="section-title"><span>📋 لیستا یاریزانان</span></h2>
+    <p class="sheet-hint">یاریەکێ هەلبژێرە دا فۆڕما وێ (A4) دیار ببیت. تیم، ڕێکەفت و ئەنجام ب خۆ دهێنە نڤیسین.</p>
+    <div id="sheetPicker"></div>
+    <div class="sheet-bar">
+      <h3 class="sub-title" id="sheetTitle">فۆڕما یاریا 1</h3>
+      <div class="sheet-actions">
+        <button type="button" class="shot-btn" id="sheetPrint">🖨️ چاپ</button>
+        <button type="button" class="shot-btn" id="sheetPrintAll">🖨️ چاپا هەمییان</button>
+        <button type="button" class="shot-btn" id="sheetShot">📷 وێنە</button>
+      </div>
+    </div>
+    <div id="sheetView"></div>
+  </main>
+  <div id="printArea"></div>
+
+  <footer id="footer"></footer>
+
+  <script src="js/lib/fonts.js?v=81"></script>
+  <script src="data.js?v=81"></script>
+  <script src="enjam.js?v=81"></script>
+  <script src="yariyzan.js?v=81"></script>
+  <script src="js/lib/html-to-image.js?v=81"></script>
+  <script src="js/lib/mitan-logo.js?v=81"></script>
+  <script src="js/lib/team-logos.js?v=81"></script>
+  <script src="js/share.js?v=81"></script>
+  <script src="js/music.js?v=81"></script>
+  <script src="js/bracket.js?v=81"></script>
+  <script src="js/results.js?v=81"></script>
+  <script src="js/scorers.js?v=81"></script>
+  <script src="js/sheets.js?v=81"></script>
+  <script src="js/app.js?v=81"></script>
+</body>
+</html>
