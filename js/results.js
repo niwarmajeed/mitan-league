@@ -162,7 +162,8 @@
           pr.appendChild(scoreRow("res-pens-score", o.pens[0], o.pens[1]));
           c.appendChild(pr);
         }
-        if (m.time) c.appendChild(el("div", "time", m.time));
+        if (m.note) c.appendChild(el("div", "time tba", m.note));
+        else if (m.time) c.appendChild(el("div", "time", m.time));
         c.appendChild(el("div", "done-badge", "✓ یاری ب دوماهی هات"));
         card.appendChild(c);
         card.appendChild(teamSide(m.away, as));

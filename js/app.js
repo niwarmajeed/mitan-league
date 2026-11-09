@@ -216,6 +216,7 @@
       }
       else if (o.date) window.LEAGUE_WARNINGS_EXTRA.push("ڕێکەفتا یاریا " + no + " نە دروستە: «" + o.date + "» (نموونە: \"2026-11-10\")");
       if (o.time) out[no].time = String(o.time);
+      if (o.note) out[no].note = String(o.note);
     }
     return out;
   }
@@ -343,7 +344,7 @@
     var byNo = {};
     var list = PATH.map(function (pair, i) {
       var no = i + 1;
-      var m = { no: no, round: stageOf(no), date: when[no].date, time: when[no].time,
+      var m = { no: no, round: stageOf(no), date: when[no].date, time: when[no].time, note: when[no].note || "",
                 result: "", pens: "", winner: null, final: no === FINAL };
       ["home", "away"].forEach(function (side, j) {
         var ref = pair[j];
@@ -384,7 +385,7 @@
 
     // ژ 2 یاریان زێدەتر د ڕۆژەکێ دا
     var perDay = {};
-    list.forEach(function (m) { if (m.date) perDay[m.date] = (perDay[m.date] || 0) + 1; });
+    list.forEach(function (m) { if (m.date && !m.note) perDay[m.date] = (perDay[m.date] || 0) + 1; });
     Object.keys(perDay).sort().forEach(function (d) {
       if (perDay[d] > 2) { var x = parseDate(d); add("ڕۆژا " + pad(x.getDate()) + "/" + pad(x.getMonth() + 1) + "/" + x.getFullYear() + " " + perDay[d] + " یاری تێدا نە (زێدەتر ژ 2). DATES ل data.js بپشکنە."); }
     });
@@ -504,7 +505,9 @@
     } else {
       c.appendChild(el("div", "vs", "VS"));
     }
-    if (m.time) c.appendChild(el("div", "time", m.time));
+    // یاریا نەهاتیە کرن (خۆ ڤەکێشان): نیشان ل جهێ دەمژمێرێ
+    if (m.note) c.appendChild(el("div", "time tba", m.note));
+    else if (m.time) c.appendChild(el("div", "time", m.time));
     if (!m.date) c.appendChild(el("div", "time tba", "ڕێکەفت: دێ پاشی هێتە دیارکرن"));
     if (goals) {
       var pp = goals[0] === goals[1] ? parsePair(m.pens) : null;
