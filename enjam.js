@@ -128,6 +128,8 @@ var RESULTS = [
   ["King FC", 3, 5, "Mitan Sport"],
   ["PSG", 5, 0, "Pushpa"],
   ["Apex FC", 0, 3, "Duhok SC"],
+  ["The Ones", 0, 1, "Duhok SC"],
+  ["Phoenix", 1, 3, "Saqar Mitan"],
 
   
   // تیمێ ئێکێ       گۆل   گۆل    تیمێ دووێ      پێناڵتی (ئەگەر هەبیت)
@@ -166,6 +168,10 @@ var GOALS = [
   [8, "محمد محسن",   "France",       1],
   [11,  "زەڤەر",  "Mitan Sport",     3],
   [12, "عیماد",       "PSG",     3],
+  [13, "هێژا",        "Saqar Mitan", 3],
+  [13, "ڕەیان",       "Phoenix",     1],
+
+
 
   
   // [1,     "Ahmed Ali",      "Duhok SC",      2],
