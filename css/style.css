@@ -1869,3 +1869,6 @@ button, input, select, textarea, table, th, td { font-family: "Rabar", "Vazirmat
 }
 .ms-vs .ms-vsc, .ms-vs .ms-score { line-height: 1; padding-top: 4px; }
 .ms-vs .ms-score { padding-top: 7px; }
+
+/* ناڤێن تیمان: هەمیشە د ناڤەڕاستا جهێ خۆ دا (دناڤبەرا لوگۆ و خانا ئەنجامێ) */
+.ms-side:first-child .ms-tname, .ms-side:last-child .ms-tname { text-align: center; }
