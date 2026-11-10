@@ -1853,3 +1853,7 @@ button, input, select, textarea, table, th, td { font-family: "Rabar", "Vazirmat
 
 /* ئاگەهداریا تایبەت ل سەر وێنەیێ ڕۆژێ */
 .day-msg.day-note { color: #ffe9a3; border-color: #e8c25c; background: rgba(168,122,30,.22); font-weight: 900; unicode-bidi: plaintext; }
+
+/* VS: ناڤ بەرەف ناڤەڕاستێ، دا کو دویراتیا هەردوو ناڤان ژ خانێن ئەنجامێ وەکهەڤ بیت */
+.ms-side:first-child .ms-tname { text-align: left; }
+.ms-side:last-child .ms-tname { text-align: right; }
