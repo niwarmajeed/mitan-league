@@ -1857,3 +1857,15 @@ button, input, select, textarea, table, th, td { font-family: "Rabar", "Vazirmat
 /* VS: ناڤ بەرەف ناڤەڕاستێ، دا کو دویراتیا هەردوو ناڤان ژ خانێن ئەنجامێ وەکهەڤ بیت */
 .ms-side:first-child .ms-tname { text-align: left; }
 .ms-side:last-child .ms-tname { text-align: right; }
+
+/* VS و خانێن ئەنجامێ: هەمان بلندی، سەر و بن ل سەر ئێک هێڵ، و نڤیسین د ناڤەڕاستێ دا */
+.ms-vs .ms-vsc, .ms-vs .ms-score { width: 62px; height: 62px; box-sizing: border-box; align-self: center; line-height: 1; padding: 0; display: flex; align-items: center; justify-content: center; }
+.ms-vs .ms-vsc { border-radius: 50%; font-size: 20px; }
+.ms-vs .ms-score { border-radius: 14px; font-size: 32px; }
+
+/* VS و ژمارێن ئەنجامێ: فۆنتەکێ کو تیپێن لاتینی تەمام د ناڤەڕاستێ دا دنڤیسیت (Rabar وان کێمەک بلند دکەت) */
+.ms-vsc, .ms-score, .vs, .goal, .sb-card-vs, .so-score, .sc-goals, .ml-mid {
+  font-family: "Vazirmatn", Arial, sans-serif;
+}
+.ms-vs .ms-vsc, .ms-vs .ms-score { line-height: 1; padding-top: 4px; }
+.ms-vs .ms-score { padding-top: 7px; }
