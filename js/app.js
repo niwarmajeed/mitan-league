@@ -438,6 +438,7 @@
     safe(window.renderBracket);
     safe(window.renderResults);
     safe(window.renderScorers);
+    safe(window.renderKeepers);
     safe(window.renderSheets);
 
     champBanner("champGames");
@@ -576,7 +577,7 @@
   }
 
   // بەش: خشتەیێ یاریان، تیروپشک و ئەنجام ژێک جودانە، هەر جارەکێ ئێک دیار دبیت
-  var TABS = ["games", "draw", "results", "scorers", "sheets"];
+  var TABS = ["games", "draw", "results", "scorers", "keepers", "sheets"];
 
   // بەشێ ئەنجامان دوو دیتن هەنە: #results (ئەنجامێن یاریان) و #results-table (خشتەیا تیمان)
   var RES_VIEWS = { "results": "matches", "results-matches": "matches", "results-table": "table" };

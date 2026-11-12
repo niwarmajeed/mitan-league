@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=89">
+  <link rel="stylesheet" href="css/style.css?v=93">
 </head>
 <body>
   <header class="hero">
@@ -64,6 +64,7 @@
     <a href="#draw" data-tab="draw">تیروپشک</a>
     <a href="#results" data-tab="results">ئەنجام</a>
     <a href="#scorers" data-tab="scorers">⚽ گۆلکەر</a>
+    <a href="#keepers" data-tab="keepers">🧤 گۆلچی</a>
     <a href="#sheets" data-tab="sheets">📋 لیستا یاریزانان</a>
   </nav>
 
@@ -194,7 +195,15 @@
     <h3 class="sub-title"><span id="scTitle">گۆلکەرێن قارەمانیێ تا نوکە</span> <span class="sc-progress" id="scProgress"></span> <button type="button" class="shot-btn" id="shotScorers" title="دابەزاندنا وێنەیێ گۆلکەران" hidden>📷 وێنە</button></h3>
     <p class="res-empty" id="scEmpty">هێشتا چ گۆل نەهاتینە تۆمارکرن</p>
     <div id="scTable"></div>
-    <p class="table-note">یاریزانێن هەمان ژمارا گۆلان هەنە، هەمان پلە وەردگرن · تنێ گۆلێن د یاریێ دا دهێنە هژمارتن، نە گۆلێن پێناڵتیێن دوماهیا یاریێ.</p>
+    <p class="table-note">تنێ گۆلێن د یاریێ دا دهێنە هژمارتن، نە گۆلێن پێناڵتیێن دوماهیا یاریێ.</p>
+  </main>
+
+  <main id="keepers" hidden>
+    <h2 class="section-title"><span>🧤 گۆلچی</span></h2>
+    <div class="res-warn" id="gkMissing" hidden></div>
+    <h3 class="sub-title">باشترین گۆلچیێ قارەمانیێ <button type="button" class="shot-btn" id="shotKeepers" title="دابەزاندنا وێنەیێ گۆلچیان">📷 وێنە</button></h3>
+    <div id="gkTable"></div>
+    <p class="table-note">ژمارێن 1 هەتا 5: گۆلێن لێ هاتین د هەر یاریەکێ دا. 🧤 = یاریا بێ گۆل.</p>
   </main>
 
   <main id="sheets" hidden>
@@ -215,19 +224,20 @@
 
   <footer id="footer"></footer>
 
-  <script src="js/lib/fonts.js?v=89"></script>
-  <script src="data.js?v=89"></script>
-  <script src="enjam.js?v=89"></script>
-  <script src="yariyzan.js?v=89"></script>
-  <script src="js/lib/html-to-image.js?v=89"></script>
-  <script src="js/lib/mitan-logo.js?v=89"></script>
-  <script src="js/lib/team-logos.js?v=89"></script>
-  <script src="js/share.js?v=89"></script>
-  <script src="js/music.js?v=89"></script>
-  <script src="js/bracket.js?v=89"></script>
-  <script src="js/results.js?v=89"></script>
-  <script src="js/scorers.js?v=89"></script>
-  <script src="js/sheets.js?v=89"></script>
-  <script src="js/app.js?v=89"></script>
+  <script src="js/lib/fonts.js?v=93"></script>
+  <script src="data.js?v=93"></script>
+  <script src="enjam.js?v=93"></script>
+  <script src="yariyzan.js?v=93"></script>
+  <script src="js/lib/html-to-image.js?v=93"></script>
+  <script src="js/lib/mitan-logo.js?v=93"></script>
+  <script src="js/lib/team-logos.js?v=93"></script>
+  <script src="js/share.js?v=93"></script>
+  <script src="js/music.js?v=93"></script>
+  <script src="js/bracket.js?v=93"></script>
+  <script src="js/results.js?v=93"></script>
+  <script src="js/scorers.js?v=93"></script>
+  <script src="js/keepers.js?v=93"></script>
+  <script src="js/sheets.js?v=93"></script>
+  <script src="js/app.js?v=93"></script>
 </body>
 </html>

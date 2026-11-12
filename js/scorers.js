@@ -114,8 +114,9 @@
     list.sort(function (a, b) {
       return b.goals - a.goals || a.games - b.games || a.name.localeCompare(b.name, "en", { sensitivity: "base" });
     });
-    // ڕیزبەندیا هەڤبەش: هەمان ژمارا گۆلان = هەمان پلە (1، 1، 3 ...)
-    list.forEach(function (p, i) { p.rank = i && p.goals === list[i - 1].goals ? list[i - 1].rank : i + 1; });
+    // هەر یاریزانەک پلەیەکا جودا (1، 2، 3 ...). ئەگەر گۆل وەکهەڤ بن، یاسایا نەدیار:
+    // یێ د یاریێن کێمتر دا گۆل کرین ل پێشیێ یە، پاشی ل دویف ناڤی (ل سەری ب sort هاتیە کرن).
+    list.forEach(function (p, i) { p.rank = i + 1; });
     var top = list.filter(function (p) { return p.rank <= TOP; });
     return { list: top, all: list, warn: warn };
   }
@@ -134,7 +135,7 @@
     var wrap = el("div", "sc-wrap");
     var t = el("table", "scorers");
     var thead = el("thead"), hr = el("tr");
-    [["پلە", "sc-rank"], ["یاریزان", "sc-player"], ["تیم", "sc-team"], ["یاری", "sc-games"], ["گۆل", "sc-goals"]].forEach(function (h) {
+    [["پلە", "sc-rank"], ["یاریزان", "sc-player"], ["تیم", "sc-team"], ["گۆل", "sc-goals"]].forEach(function (h) {
       hr.appendChild(el("th", h[1], h[0]));
     });
     thead.appendChild(hr);
@@ -158,7 +159,6 @@
       if (p.out) tw.appendChild(el("span", "sc-out", "دەرکەفت"));
       tc.appendChild(tw);
       tr.appendChild(tc);
-      tr.appendChild(el("td", "sc-games", p.games));
       tr.appendChild(el("td", "sc-goals", p.goals));
       tb.appendChild(tr);
     });

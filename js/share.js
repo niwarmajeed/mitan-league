@@ -817,8 +817,21 @@
     }));
   }
 
+  // ---------- 7) گۆلچی ----------
+  function shootKeepers(e) {
+    if (e) e.stopPropagation();
+    var GK = window.MITAN_KEEPERS;
+    if (!GK) return;
+    openMenu(document.getElementById("shotKeepers"), "📷 قەبارێ وێنەی هەلبژێرە", sizeItems(["post", "story"], function () {
+      var nodes = [GK.buildTable(GK.compute().list)];
+      var pc = portraitCard("🧤 باشترین گۆلچیێ قارەمانیێ", "", nodes, "table-card scorers-card keepers-card", true);
+      return shoot(pc.card, named("mitan-golchi.png"), { ratio: PORTRAIT.RATIO, cleanup: pc.remove, before: pc.fit });
+    }));
+  }
+
   function bind(id, fn) { var b = document.getElementById(id); if (b) b.addEventListener("click", fn); }
   bind("shotScorers", shootScorers);
+  bind("shotKeepers", shootKeepers);
   bind("shotBtn", function (e) { e.stopPropagation(); openDrawMenu(); });
   bind("shotTable", shootTable);
 

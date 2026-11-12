@@ -1872,3 +1872,49 @@ button, input, select, textarea, table, th, td { font-family: "Rabar", "Vazirmat
 
 /* ناڤێن تیمان: هەمیشە د ناڤەڕاستا جهێ خۆ دا (دناڤبەرا لوگۆ و خانا ئەنجامێ) */
 .ms-side:first-child .ms-tname, .ms-side:last-child .ms-tname { text-align: center; }
+
+/* گۆلکەر: ستوونا «یاری» نەما */
+.scorers-card .scorers th.sc-player, .scorers-card .scorers td.sc-player { width: 38%; }
+.scorers-card .scorers th.sc-team, .scorers-card .scorers td.sc-team { width: 38%; }
+
+/* ---------- تابا گۆلچیان ---------- */
+#keepers { max-width: 1400px; }
+.keepers { min-width: 760px; }
+.keepers .gk-g { width: 46px; }
+.keepers td.gk-g { font-size: 1.15rem; font-weight: 900; color: #d64545; }
+.keepers td.gk-g.clean { color: #1f9d55; }
+.keepers td.gk-g.clean::after { content: " 🧤"; font-size: .8em; }
+.keepers td.gk-g.none { background: repeating-linear-gradient(135deg, transparent 0 6px, rgba(20,58,92,.05) 6px 12px); }
+.keepers .gk-ga { font-weight: 900; color: var(--navy); }
+.keepers td.gk-ga { font-size: 1.3rem; }
+.keepers .gk-clean { font-weight: 900; color: #1f9d55; }
+.keepers td.gk-clean { font-size: 1.3rem; }
+.keepers tr.idle td { color: var(--muted); }
+.keepers tr.idle .sc-tw { opacity: .6; }
+.sc-name.gk-none { color: var(--muted); font-weight: 700; font-style: italic; }
+@media (max-width: 600px) { .keepers .gk-g { width: 34px; } }
+/* وێنە */
+.keepers-card .keepers { min-width: 0; table-layout: fixed; font-size: 24px; }
+.keepers-card .scorers th.sc-rank, .keepers-card .scorers td.sc-rank { width: 9%; }
+.keepers-card .scorers th.sc-player, .keepers-card .scorers td.sc-player { width: 21%; }
+.keepers-card .scorers th.sc-team, .keepers-card .scorers td.sc-team { width: 26%; }
+.keepers-card .keepers .gk-g { width: 6%; }
+.keepers-card .keepers .gk-ga, .keepers-card .keepers .gk-clean { width: 7%; font-size: 20px; white-space: normal; line-height: 1.1; }
+.keepers-card .keepers td.gk-g { font-size: 30px; color: #ff9a9a; }
+.keepers-card .keepers td.gk-g.clean { color: #5fe3a1; }
+.keepers-card .keepers td.gk-g.clean::after { content: ""; }
+.keepers-card .keepers td.gk-ga { font-size: 36px; color: #f3d27a; }
+.keepers-card .keepers td.gk-clean { font-size: 36px; color: #5fe3a1; }
+.keepers-card .sc-name { font-size: 26px; }
+.keepers-card .sc-tname { font-size: 22px; }
+.keepers-card .sc-name.gk-none { color: #b9d7ea; font-size: 20px; }
+.keepers-card .sc-boot { font-size: 14px; }
+.keepers-card tr.idle td { color: #b9d7ea; }
+
+/* گۆلچی: سەرێن ستوونان هەمی سپی و ئاشکەرا (ل سەر ماڵپەری و وێنەی) */
+.keepers th, .keepers th.gk-ga, .keepers th.gk-clean, .keepers th.gk-g { color: #fff !important; font-weight: 900; white-space: nowrap; }
+.keepers th.gk-clean, .keepers th.gk-ga { font-size: .85rem; }
+.keepers-card .keepers th.gk-ga, .keepers-card .keepers th.gk-clean { font-size: 18px; white-space: normal; line-height: 1.2; }
+.keepers-card .keepers th.gk-g { font-size: 26px; }
+.keepers-card .sc-out { color: #e3f1fa; background: rgba(255,255,255,.14); border-color: rgba(207,233,247,.55); }
+.keepers-card .sc-name.gk-none { color: #cfe3f1; }

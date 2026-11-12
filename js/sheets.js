@@ -130,7 +130,7 @@
         var p = pl[i] || [];
         var tr = el("tr");
         tr.appendChild(el("td", "c-no", i + 1));
-        var nm = el("td", "c-name", p[0] || "");
+        var nm = el("td", "c-name", p[0] ? p[0] + (window.MITAN_KEEPERS && window.MITAN_KEEPERS.isKeeper(p[1]) ? " 🧤" : "") : "");
         nm.dir = "auto";
         tr.appendChild(nm);
         tr.appendChild(el("td", "c-shirt", p[1] != null ? p[1] : ""));
