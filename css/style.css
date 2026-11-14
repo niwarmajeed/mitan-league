@@ -1918,3 +1918,72 @@ button, input, select, textarea, table, th, td { font-family: "Rabar", "Vazirmat
 .keepers-card .keepers th.gk-g { font-size: 26px; }
 .keepers-card .sc-out { color: #e3f1fa; background: rgba(255,255,255,.14); border-color: rgba(207,233,247,.55); }
 .keepers-card .sc-name.gk-none { color: #cfe3f1; }
+
+/* ---------- پۆستا تایبەت یا فاینەلێ ---------- */
+.fpost { position: relative; overflow: hidden; direction: rtl; color: #fff; font-family: "Rabar", "Vazirmatn", sans-serif;
+  background: radial-gradient(ellipse 85% 60% at 50% 38%, #1d4f8f 0%, #0d2a5a 55%, #050f24 100%); }
+.fp-beam { position: absolute; top: -60px; width: 520px; height: 1100px; z-index: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,.06) 55%, transparent); filter: blur(6px); }
+.fp-beam.l { left: -120px; transform: rotate(-24deg); transform-origin: top center; clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%); }
+.fp-beam.r { right: -120px; transform: rotate(24deg); transform-origin: top center; clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%); }
+.fp-pitch { position: absolute; left: -10%; right: -10%; bottom: -120px; height: 330px; z-index: 0; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.10); background: radial-gradient(ellipse at 50% 0, rgba(76,198,238,.12), transparent 70%); }
+.fp-conf { position: absolute; z-index: 1; width: 16px; height: 6px; border-radius: 2px; background: #e8c25c; opacity: .75; }
+.fp-conf.blue { background: #35a6de; }
+.fp-frame { position: absolute; inset: 12px; z-index: 1; border-radius: 22px; pointer-events: none;
+  border: 3px solid transparent; background: linear-gradient(135deg, #a87a1e, #ffe9a3, #c8962a, #ffe9a3, #a87a1e) border-box;
+  -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+.fp-col { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; padding: 42px 60px 30px; transform-origin: top center; }
+.fp-logo { width: 96px; height: 96px; border-radius: 22px; object-fit: cover; border: 3px solid #e8c25c; box-shadow: 0 6px 20px rgba(0,0,0,.4); }
+.fp-title { margin-top: 14px; font-size: 34px; font-weight: 900; white-space: nowrap; color: #f3c74f;
+  background: linear-gradient(90deg, #e2b450, #ffe08a, #e2b450); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.fp-sup { margin-top: 10px; padding: 4px 22px; border-radius: 999px; font-size: 20px; font-weight: 800; background: rgba(5,15,36,.55); border: 1.5px solid rgba(232,194,92,.7); }
+.fp-trophy { position: relative; margin-top: 22px; width: 300px; height: 250px; display: flex; justify-content: center; }
+.fp-glow { position: absolute; left: 50%; top: 50%; width: 360px; height: 300px; transform: translate(-50%,-50%);
+  background: radial-gradient(circle, rgba(255,210,110,.45), transparent 65%); }
+.fp-cup { position: relative; width: 230px; height: 250px; filter: drop-shadow(0 0 22px rgba(255,210,110,.55)); }
+.fp-year { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); font-size: 20px; font-weight: 900; color: #ffe9a3; font-family: "Vazirmatn", sans-serif; }
+.fp-spark { position: absolute; color: #fff3c4; font-size: 26px; text-shadow: 0 0 10px #ffe08a; }
+.fp-spark.s1 { left: -10px; top: 30px; } .fp-spark.s2 { right: -6px; top: 10px; font-size: 20px; }
+.fp-spark.s3 { left: 20px; bottom: 30px; font-size: 18px; } .fp-spark.s4 { right: 14px; bottom: 60px; }
+.fp-ribbon { margin-top: 10px; padding: 8px 60px; font-size: 30px; font-weight: 900; color: #2b1d00;
+  background: linear-gradient(90deg, #c8962a, #ffe9a3 30%, #f3d27a 50%, #ffe9a3 70%, #c8962a);
+  clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%); box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+.fp-big { margin-top: -6px; max-width: 100%; font-size: 136px; line-height: 1.25; font-weight: 900; white-space: nowrap; unicode-bidi: isolate;
+  background: linear-gradient(180deg, #fff3c4, #f3c74f 45%, #a87a1e); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,.45)); }
+.fp-big.champ { font-size: 104px; }
+.fp-ask { margin-top: -10px; font-size: 28px; font-weight: 800; color: #dbeefa; }
+.fp-card { margin-top: 22px; width: 100%; padding: 26px 30px; border-radius: 26px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px;
+  background: linear-gradient(160deg, rgba(255,255,255,.12), rgba(255,255,255,.04)); border: 2px solid rgba(232,194,92,.75);
+  box-shadow: 0 0 30px rgba(255,210,110,.22), inset 0 1px 0 rgba(255,255,255,.15); }
+.fp-team { display: flex; flex-direction: column; align-items: center; gap: 14px; min-width: 0; }
+.fp-badge { position: relative; }
+.fp-tlogo { width: 186px; height: 186px; border-radius: 50%; object-fit: contain; background: #fff; padding: 8px;
+  border: 5px solid #e8c25c; box-shadow: 0 0 0 5px rgba(76,198,238,.6), 0 10px 24px rgba(0,0,0,.4); }
+.fp-tlogo.ph { display: grid; place-items: center; padding: 0; background: rgba(255,255,255,.06); color: #fff; font-size: 70px; font-weight: 900; border-style: dashed; }
+.fp-tname { max-width: 100%; font-size: 46px; font-weight: 900; white-space: nowrap; overflow: hidden; unicode-bidi: isolate; text-shadow: 0 3px 8px rgba(0,0,0,.4); }
+.fp-tname.tbd { font-size: 30px; color: #cfe3f1; }
+.fp-team.win .fp-tlogo { width: 206px; height: 206px; box-shadow: 0 0 0 6px #ffe08a, 0 0 40px 10px rgba(255,210,110,.75); }
+.fp-team.lose { opacity: .72; }
+.fp-crown { position: absolute; top: -40px; left: 50%; transform: translateX(-50%); font-size: 52px; z-index: 2; }
+.fp-vswrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.fp-vs { width: 110px; height: 110px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: "Vazirmatn", sans-serif;
+  font-size: 40px; font-weight: 900; color: #2b1d00; background: radial-gradient(circle at 35% 30%, #fff3c4, #e8c25c 55%, #a87a1e);
+  box-shadow: 0 0 0 4px rgba(255,233,163,.35), 0 0 30px rgba(255,210,110,.6); }
+.fp-vs.score { width: 150px; border-radius: 60px; font-size: 44px; }
+.fp-pens { font-size: 20px; font-weight: 800; color: #ffe9a3; }
+.fp-date { margin-top: 24px; padding: 10px 36px; border-radius: 999px; font-size: 30px; font-weight: 900; background: rgba(5,15,36,.65); border: 2px solid #e8c25c; white-space: nowrap; }
+.fp-date b { color: #f3c74f; }
+.fp-msg { margin-top: 16px; font-size: 28px; font-weight: 800; color: #dbeefa; }
+.fp-msg b { color: #f3c74f; unicode-bidi: isolate; }
+.fp-foot { margin-top: auto; font-size: 20px; }
+.fpost.story .fp-col { padding-top: 120px; padding-bottom: 150px; justify-content: space-between; }
+.fpost.story .fp-trophy { transform: scale(1.15); margin: 50px 0 30px; }
+.fpost.story .fp-card { margin-top: 40px; }
+
+.fpost .fp-tname, .fpost .fp-big, .fpost .fp-ribbon, .fpost .fp-date, .fpost .fp-ask, .fpost .fp-msg, .fpost .fp-title { font-family: "Vazirmatn", "Rabar", sans-serif; }
+.fpost.story .fp-col { padding-top: 70px; padding-bottom: 110px; justify-content: flex-start; }
+.fpost.story .fp-trophy { transform: none; margin: 26px 0 10px; }
+.fpost.story .fp-card { margin-top: 30px; }
+.fpost.story .fp-foot { margin-top: auto; }

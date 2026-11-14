@@ -749,6 +749,121 @@
     return box;
   }
 
+  // ---------- پۆستا تایبەت یا فاینەلێ (یاریا 18) ----------
+  // ل دویف _reference/final-post.png. بەری فاینەلێ: «فاینەل»؛ پشتی ئەنجامێ: ناڤێ پاڵەوانی.
+  var FP_DAYS = ["یەکشەمب", "دووشەمب", "سێشەمب", "چارشەمب", "پێنجشەمب", "ئەینی", "شەمبی"];
+  function posterFinalMatch() {
+    var MS = window.LEAGUE_MATCHES || [], no = (window.LEAGUE_PATH || []).length, m = MS[no - 1] || {};
+    var story = F === FORMATS.story;
+    var W = 1080, H = story ? 1920 : 1350;
+    var st = stage(W, H, "fpost" + (story ? " story" : "")), p = st.p;
+    var champ = m.winner && typeof TEAMS !== "undefined" ? TEAMS[m.winner] : null;
+
+    p.appendChild(el("div", "fp-beam l"));
+    p.appendChild(el("div", "fp-beam r"));
+    p.appendChild(el("div", "fp-pitch"));
+    // کاغەزێن ڕەنگین تنێ ل لێڤێن چەپ و ڕاست
+    var seed = 7;
+    function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    for (var i = 0; i < 26; i++) {
+      var c = el("i", "fp-conf" + (rnd() < .3 ? " blue" : ""));
+      var left = rnd() < .5;
+      c.style.cssText = (left ? "left:" : "right:") + Math.round(14 + rnd() * 70) + "px;top:" + Math.round(70 + rnd() * (H - 200)) + "px;transform:rotate(" + Math.round(rnd() * 180) + "deg)";
+      p.appendChild(c);
+    }
+    p.appendChild(el("div", "fp-frame"));
+
+    var col = el("div", "fp-col");
+    var lg = logoData();
+    if (lg) { var li = el("img", "fp-logo"); li.src = lg; li.alt = ""; col.appendChild(li); }
+    col.appendChild(el("div", "fp-title", S().dayTitle || S().drawTitle || ""));
+    col.appendChild(el("div", "fp-sup", S().exportSupervisor || ""));
+
+    var tw = el("div", "fp-trophy");
+    tw.appendChild(el("div", "fp-glow"));
+    ["s1", "s2", "s3", "s4"].forEach(function (k) { tw.appendChild(el("span", "fp-spark " + k, "✦")); });
+    var cup = document.querySelector(".hero .trophy");
+    if (cup) { var cc = cup.cloneNode(true); cc.setAttribute("class", "fp-cup"); tw.appendChild(cc); }
+    tw.appendChild(el("div", "fp-year", "2026"));
+    col.appendChild(tw);
+
+    col.appendChild(el("div", "fp-ribbon", champ ? "🏆 پاڵەوانێ قارەمانیێ" : "⭐ یاریا دوماهیێ یا قارەمانیێ ⭐"));
+    var big = el("div", "fp-big" + (champ ? " champ" : ""), champ ? champ.name : "فاینەل");
+    big.dir = "auto";
+    col.appendChild(big);
+    if (!champ) col.appendChild(el("div", "fp-ask", "کێ دێ کوپا قارەمانیێ بلند کەت؟ 🏆"));
+
+    // کارتا یاریێ: لایێ ڕاستێ تیما ئێکێ، لایێ چەپێ تیما دووێ
+    var card = el("div", "fp-card");
+    function side(id, ph) {
+      var t = id && typeof TEAMS !== "undefined" ? TEAMS[id] : null, s = el("div", "fp-team" + (champ && id === m.winner ? " win" : champ ? " lose" : ""));
+      var b = el("div", "fp-badge");
+      if (champ && id === m.winner) b.appendChild(el("span", "fp-crown", "👑"));
+      if (t && t.logo) { var im = el("img", "fp-tlogo"); im.src = t.logo; im.alt = ""; b.appendChild(im); }
+      else b.appendChild(el("div", "fp-tlogo ph", "؟"));
+      s.appendChild(b);
+      var n = el("div", "fp-tname" + (t ? "" : " tbd"), t ? t.name : (ph || "؟"));
+      n.dir = "auto";
+      s.appendChild(n);
+      return s;
+    }
+    card.appendChild(side(m.home, m.homePh));
+    var vs = el("div", "fp-vswrap");
+    var g = parsePair(m.result);
+    if (g) {
+      var sc = el("div", "fp-vs score", g[0] + " - " + g[1]);
+      sc.dir = "ltr";
+      vs.appendChild(sc);
+      var pp = parsePair(m.pens);
+      if (pp) { var pe = el("div", "fp-pens", "پێناڵتی "); var pn = el("span", null, pp[0] + " - " + pp[1]); pn.dir = "ltr"; pe.appendChild(pn); vs.appendChild(pe); }
+    } else vs.appendChild(el("div", "fp-vs", "VS"));
+    card.appendChild(vs);
+    card.appendChild(side(m.away, m.awayPh));
+    col.appendChild(card);
+
+    var dp = el("div", "fp-date");
+    if (m.date) {
+      var q = m.date.split("-"), d = new Date(+q[0], +q[1] - 1, +q[2]);
+      dp.appendChild(document.createTextNode(FP_DAYS[d.getDay()] + " · "));
+      dp.appendChild(el("b", null, q[2] + "/" + q[1] + "/" + q[0]));
+      dp.appendChild(document.createTextNode(" · دەمژمێر "));
+      dp.appendChild(el("b", null, (m.time || "").replace(/\s*ئێڤاری\s*/, "")));
+      dp.appendChild(document.createTextNode(" ئێڤاری"));
+    } else dp.textContent = "ڕێکەفت: دێ پاشی هێتە دیارکرن";
+    col.appendChild(dp);
+
+    var msg = el("div", "fp-msg");
+    if (champ) {
+      msg.appendChild(document.createTextNode("پیرۆز بیت ل "));
+      var cn = el("b", null, champ.name); cn.dir = "auto"; msg.appendChild(cn);
+      msg.appendChild(document.createTextNode("! 🎉"));
+    } else {
+      msg.appendChild(document.createTextNode("داخوازا سەرکەفتنێ بۆ "));
+      msg.appendChild(el("b", null, "هەردوو تیمان"));
+      msg.appendChild(document.createTextNode(" دکەین ⚽"));
+    }
+    col.appendChild(msg);
+    var foot = credit("fp-foot");
+    col.appendChild(foot);
+    p.appendChild(col);
+
+    function fit() {
+      // ناڤێ پاڵەوانی ل سەر ئێک ڕێز
+      var f = parseFloat(getComputedStyle(big).fontSize);
+      while (big.scrollWidth > big.clientWidth + 1 && f > 60) { f -= 2; big.style.fontSize = f + "px"; }
+      [].forEach.call(p.querySelectorAll(".fp-tname"), function (n) {
+        var s = parseFloat(getComputedStyle(n).fontSize);
+        while (n.scrollWidth > n.clientWidth + 1 && s > 26) { s -= 2; n.style.fontSize = s + "px"; }
+      });
+      // ستۆری: هەمی تشت مەزنتر دا کو 9:16 پڕ ببیت، پاشی بچووک دبیت ئەگەر جه نەگریت
+      var z = story ? 1.32 : 1;
+      col.style.zoom = z;
+      while (col.scrollHeight > col.clientHeight + 1 && z > .6) { z -= .02; col.style.zoom = z; }
+    }
+    var file = (champ ? "mitan-faynal-palewan" : "mitan-faynal") + (story ? "-story" : "") + ".png";
+    return shoot(p, file, { ratio: 2, cleanup: st.remove, before: fit });
+  }
+
   function dayButton(head, sec, kind) {
     var b = el("button", "shot-btn", "📷 وێنە");
     b.type = "button";
@@ -777,12 +892,18 @@
               : final ? (m ? M.final : M.finalTba)
               : cards.length === 1 ? M.dayOne : M.dayMany;
       var msg = tpl ? dayMessage(tpl, { weekday: dn, date: dt, times: times.join(" و ") }) : null;
-      openMenu(b, "📷 قەبارێ وێنەی هەلبژێرە", sizeItems(["post", "story", "square"], function () {
+      // ڕۆژا فاینەلێ: پۆستا تایبەت یا فاینەلێ ل سەری مێنیویێ
+      var hasFinal = cards.some(function (c) { return c.classList.contains("final"); });
+      var extra = hasFinal ? [
+        { title: "🏆 پۆستا فاینەلێ (4:5)", sub: "2160 × 2700 px", fmt: "post", job: posterFinalMatch },
+        { title: "🏆 فاینەل — ستۆری (9:16)", sub: "2160 × 3840 px", fmt: "story", job: posterFinalMatch }
+      ] : [];
+      openMenu(b, "📷 قەبارێ وێنەی هەلبژێرە", extra.concat(sizeItems(["post", "story", "square"], function () {
         // هەر جار کۆپیەکا نوو یا کارتان و پەیامێ (دا کو چەند جاران بهێتە دابەزاندن)
         var cs = cards.map(function (c) { return c.cloneNode(true); });
         var pc = portraitCard(badge, sub, cs, "day-card", false, { msg: msg ? msg.cloneNode(true) : null, note: typeof DAY_NOTES !== "undefined" && iso ? DAY_NOTES[iso] : null });
         return shoot(pc.card, named(name), { ratio: PORTRAIT.RATIO, cleanup: pc.remove, before: pc.fit });
-      }));
+      })));
     });
     return b;
   }
